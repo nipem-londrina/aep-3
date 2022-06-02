@@ -62,29 +62,29 @@ public class TelaDesativarResposta extends javax.swing.JFrame {
         painelVermelho.setLayout(painelVermelhoLayout);
         painelVermelhoLayout.setHorizontalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVermelhoLayout.createSequentialGroup()
-                .addContainerGap(573, Short.MAX_VALUE)
+            .addGroup(painelVermelhoLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
                 .addComponent(txtTituloFormulario)
-                .addGap(122, 122, 122))
+                .addContainerGap(590, Short.MAX_VALUE))
         );
         painelVermelhoLayout.setVerticalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVermelhoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painelVermelhoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(txtTituloFormulario)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(painelVermelho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jSeparator6.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator6.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 310, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 310, 10));
 
         lblPergunta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblPergunta.setForeground(new java.awt.Color(255, 0, 66));
         lblPergunta.setText("Pergunta");
-        jPanel1.add(lblPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
+        jPanel1.add(lblPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         btnCancelarFormulario.setBackground(new java.awt.Color(153, 153, 153));
         btnCancelarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -96,14 +96,14 @@ public class TelaDesativarResposta extends javax.swing.JFrame {
                 btnCancelarFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 150, 40));
+        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 150, 40));
 
         btnDesativarResposta.setBackground(new java.awt.Color(255, 0, 66));
         btnDesativarResposta.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnDesativarResposta.setForeground(new java.awt.Color(255, 255, 255));
         btnDesativarResposta.setText("DESATIVAR");
         btnDesativarResposta.setBorder(null);
-        jPanel1.add(btnDesativarResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 150, 40));
+        jPanel1.add(btnDesativarResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 150, 40));
 
         txaPergunta.setEditable(false);
         txaPergunta.setColumns(20);
@@ -112,25 +112,25 @@ public class TelaDesativarResposta extends javax.swing.JFrame {
         txaPergunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
         jScrollPane1.setViewportView(txaPergunta);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 310, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 310, -1));
 
         cbxIdResposta.setForeground(new java.awt.Color(255, 0, 66));
         cbxIdResposta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbxIdResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 140, -1));
+        jPanel1.add(cbxIdResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 140, -1));
 
         lblIdPergunta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPergunta.setForeground(new java.awt.Color(255, 0, 66));
         lblIdPergunta.setText("ID Pergunta");
-        jPanel1.add(lblIdPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        jPanel1.add(lblIdPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jSeparator8.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator8.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 385, 60, 10));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 60, 10));
 
         lblValor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblValor.setForeground(new java.awt.Color(255, 0, 66));
         lblValor.setText("Valor");
-        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
+        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
         lblValor.getAccessibleContext().setAccessibleDescription("");
 
         txtResposta.setEditable(false);
@@ -138,50 +138,48 @@ public class TelaDesativarResposta extends javax.swing.JFrame {
         txtResposta.setToolTipText("");
         txtResposta.setBorder(null);
         txtResposta.setEnabled(false);
-        jPanel1.add(txtResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 310, -1));
+        jPanel1.add(txtResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 310, -1));
 
         jSeparator7.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator7.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 267, 310, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 310, 10));
 
         jComboBox1.setForeground(new java.awt.Color(255, 0, 66));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "30", "40", "50" }));
         jComboBox1.setEnabled(false);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 60, -1));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 60, -1));
 
         lblResposta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblResposta.setForeground(new java.awt.Color(255, 0, 66));
         lblResposta.setText("Resposta");
-        jPanel1.add(lblResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
+        jPanel1.add(lblResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         jSeparator9.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator9.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 145, 140, 10));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 140, 10));
 
         lblIdResposta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdResposta.setForeground(new java.awt.Color(255, 0, 66));
         lblIdResposta.setText("ID Resposta");
-        jPanel1.add(lblIdResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        jPanel1.add(lblIdResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
 
         jSeparator11.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator11.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 145, 140, 10));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 140, 10));
 
         cbxIdPergunta1.setForeground(new java.awt.Color(255, 0, 66));
         cbxIdPergunta1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbxIdPergunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 140, -1));
+        jPanel1.add(cbxIdPergunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 140, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

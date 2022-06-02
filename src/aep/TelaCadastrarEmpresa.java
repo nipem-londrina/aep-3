@@ -55,29 +55,29 @@ public class TelaCadastrarEmpresa extends javax.swing.JFrame {
         painelVermelho.setLayout(painelVermelhoLayout);
         painelVermelhoLayout.setHorizontalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVermelhoLayout.createSequentialGroup()
-                .addContainerGap(573, Short.MAX_VALUE)
+            .addGroup(painelVermelhoLayout.createSequentialGroup()
+                .addGap(115, 115, 115)
                 .addComponent(txtTituloFormulario)
-                .addGap(122, 122, 122))
+                .addContainerGap(580, Short.MAX_VALUE))
         );
         painelVermelhoLayout.setVerticalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVermelhoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painelVermelhoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(txtTituloFormulario)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(painelVermelho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jSeparator6.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator6.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 310, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 310, 10));
 
         lblNomeEmpresa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNomeEmpresa.setForeground(new java.awt.Color(255, 0, 66));
         lblNomeEmpresa.setText("Nome");
-        jPanel1.add(lblNomeEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+        jPanel1.add(lblNomeEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         btnCancelarFormulario.setBackground(new java.awt.Color(153, 153, 153));
         btnCancelarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -89,37 +89,37 @@ public class TelaCadastrarEmpresa extends javax.swing.JFrame {
                 btnCancelarFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 150, 40));
+        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 150, 40));
 
         btnCadastrarEmpresa.setBackground(new java.awt.Color(255, 0, 66));
         btnCadastrarEmpresa.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnCadastrarEmpresa.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarEmpresa.setText("CADASTRAR");
         btnCadastrarEmpresa.setBorder(null);
-        jPanel1.add(btnCadastrarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 150, 40));
+        jPanel1.add(btnCadastrarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 150, 40));
 
         lblIdEmpresa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdEmpresa.setForeground(new java.awt.Color(255, 0, 66));
         lblIdEmpresa.setText("ID Pergunta");
-        jPanel1.add(lblIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        jPanel1.add(lblIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         txtCnpj.setForeground(new java.awt.Color(255, 0, 66));
         txtCnpj.setToolTipText("");
         txtCnpj.setBorder(null);
-        jPanel1.add(txtCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 310, -1));
+        jPanel1.add(txtCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 310, -1));
 
         jSeparator7.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator7.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 310, 20));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 310, 20));
 
         lblCpnj.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCpnj.setForeground(new java.awt.Color(255, 0, 66));
         lblCpnj.setText("CNPJ");
-        jPanel1.add(lblCpnj, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
+        jPanel1.add(lblCpnj, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         jSeparator11.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator11.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, 10));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 140, 10));
 
         cbxIdEmpresa.setForeground(new java.awt.Color(255, 0, 66));
         cbxIdEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -128,18 +128,18 @@ public class TelaCadastrarEmpresa extends javax.swing.JFrame {
                 cbxIdEmpresaActionPerformed(evt);
             }
         });
-        jPanel1.add(cbxIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 140, -1));
+        jPanel1.add(cbxIdEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 140, -1));
 
         txtNomeEmpresa.setForeground(new java.awt.Color(255, 0, 66));
         txtNomeEmpresa.setBorder(null);
-        jPanel1.add(txtNomeEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 310, -1));
+        jPanel1.add(txtNomeEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 310, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

@@ -67,17 +67,17 @@ public class TelaCadastro extends javax.swing.JFrame {
         painelVerlhodoTitulo.setLayout(painelVerlhodoTituloLayout);
         painelVerlhodoTituloLayout.setHorizontalGroup(
             painelVerlhodoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVerlhodoTituloLayout.createSequentialGroup()
-                .addContainerGap(628, Short.MAX_VALUE)
+            .addGroup(painelVerlhodoTituloLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
                 .addComponent(lblTituloCadastro)
-                .addGap(67, 67, 67))
+                .addContainerGap(546, Short.MAX_VALUE))
         );
         painelVerlhodoTituloLayout.setVerticalGroup(
             painelVerlhodoTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelVerlhodoTituloLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVerlhodoTituloLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTituloCadastro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1.add(painelVerlhodoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -186,7 +186,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

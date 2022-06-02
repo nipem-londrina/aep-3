@@ -61,10 +61,10 @@ public class TelaDesativarUsuario extends javax.swing.JFrame {
         painelVermelho.setLayout(painelVermelhoLayout);
         painelVermelhoLayout.setHorizontalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelVermelhoLayout.createSequentialGroup()
-                .addContainerGap(598, Short.MAX_VALUE)
+            .addGroup(painelVermelhoLayout.createSequentialGroup()
+                .addGap(157, 157, 157)
                 .addComponent(lblTituloDesativarUser)
-                .addGap(97, 97, 97))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         painelVermelhoLayout.setVerticalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +198,7 @@ public class TelaDesativarUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
