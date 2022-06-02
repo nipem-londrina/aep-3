@@ -170,7 +170,7 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Mateus\Desktop\aep\icons\face.png"/>
+              <Image iconType="3" name="/aep/icons/face.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -182,7 +182,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Mateus\Desktop\aep\icons\insta.png"/>
+              <Image iconType="3" name="/aep/icons/in.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -194,7 +194,7 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Mateus\Desktop\aep\icons\in.png"/>
+              <Image iconType="3" name="/aep/icons/insta.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -206,7 +206,7 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Mateus\Desktop\aep\icons\zap.png"/>
+              <Image iconType="3" name="/aep/icons/zap.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -239,7 +239,7 @@
         <Component class="javax.swing.JLabel" name="icon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Mateus\Desktop\aep\icons\logomenor.png"/>
+              <Image iconType="3" name="/aep/icons/logomenor.png"/>
             </Property>
           </Properties>
           <Constraints>

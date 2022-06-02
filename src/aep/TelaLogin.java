@@ -86,16 +86,16 @@ public class TelaLogin extends javax.swing.JFrame {
         jSeparator5.setForeground(new java.awt.Color(255, 0, 66));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 310, 10));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateus\\Desktop\\aep\\icons\\face.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/face.png"))); // NOI18N
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateus\\Desktop\\aep\\icons\\insta.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/in.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateus\\Desktop\\aep\\icons\\in.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/insta.png"))); // NOI18N
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateus\\Desktop\\aep\\icons\\zap.png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/zap.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 0, 442, 501));
@@ -104,7 +104,7 @@ public class TelaLogin extends javax.swing.JFrame {
         painelRosa.setForeground(new java.awt.Color(57, 113, 177));
         painelRosa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateus\\Desktop\\aep\\icons\\logomenor.png")); // NOI18N
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logomenor.png"))); // NOI18N
         painelRosa.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 140, 600, 250));
 
         getContentPane().add(painelRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 500));
