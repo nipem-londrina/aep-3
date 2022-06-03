@@ -21,6 +21,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblSenhaCorreta = new javax.swing.JLabel();
         painelRosa = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
 
@@ -86,6 +87,10 @@ public class Login extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/zap.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, -1));
 
+        lblSenhaCorreta.setForeground(new java.awt.Color(255, 0, 66));
+        lblSenhaCorreta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel2.add(lblSenhaCorreta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 0, 442, 501));
 
         painelRosa.setBackground(new java.awt.Color(254, 244, 247));
@@ -101,8 +106,12 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        this.dispose();
-        new HomeFuncionario().setVisible(true);    
+        if (txtPasswordLogin.getText().equals("senha") || txtPasswordLogin.getText().equals("")) { //ATENÇÃO!! senhas placeholder
+            this.dispose();
+            new HomeFuncionario().setVisible(true);
+        } else {
+            lblSenhaCorreta.setText("Email ou senha incorretos.");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     public static void main(String args[]) {
@@ -123,6 +132,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblSenhaCorreta;
     private javax.swing.JPanel painelRosa;
     private javax.swing.JTextField txtEmailLogin;
     private javax.swing.JPasswordField txtPasswordLogin;
