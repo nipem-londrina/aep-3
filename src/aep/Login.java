@@ -107,7 +107,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        if (txtPasswordLogin.getText().equals("senha") || txtPasswordLogin.getText().equals("")) { //ATENÇÃO!! senhas placeholder
+        String email = txtEmailLogin.getText();
+        String senha = String.valueOf(txtPasswordLogin.getPassword());
+        String senhacerta = connection.UsuarioDAO.fetchSenha(email);
+        if (senha.equals(senhacerta)) {
             this.dispose();
             new HomeFuncionario().setVisible(true);
         } else {
