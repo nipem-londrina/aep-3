@@ -32,6 +32,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
         subItemEstatisticas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sanity");
 
         HomePainel.setBackground(new java.awt.Color(255, 255, 255));
 
