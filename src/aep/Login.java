@@ -1,5 +1,7 @@
 package aep;
 
+import connection.UsuarioDAO;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -107,12 +109,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String email = txtEmailLogin.getText();
-        String senha = String.valueOf(txtPasswordLogin.getPassword());
-        String senhacerta = connection.UsuarioDAO.fetchSenha(email);
-        if (senha.equals(senhacerta)) {
+//        if (connection.UsuarioDAO.login(txtEmailLogin.getText(), txtPasswordLogin.getText())) {
+//            this.dispose();
+//            new HomeFuncionario().setVisible(true);
+//        } else {
+//            lblSenhaCorreta.setText("Email ou senha incorretos.");
+//        }
+        Usuario user = new Usuario();
+        if (UsuarioDAO.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
             this.dispose();
-            new HomeFuncionario().setVisible(true);
+            new HomeFuncionario(user).setVisible(true);
         } else {
             lblSenhaCorreta.setText("Email ou senha incorretos.");
         }

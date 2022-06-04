@@ -5,11 +5,17 @@ public class HomeFuncionario extends javax.swing.JFrame {
     public HomeFuncionario() {
         initComponents();
     }
+    
+    public HomeFuncionario(Usuario user) {
+        initComponents();
+        lblUsuarioLogado.setText("Usuário: " + user.getNome());
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         HomePainel = new javax.swing.JPanel();
+        lblUsuarioLogado = new javax.swing.JLabel();
         homeMenuBar = new javax.swing.JMenuBar();
         ItemMenuUsuarios = new javax.swing.JMenu();
         subItemCadastrarUsuario = new javax.swing.JMenuItem();
@@ -36,15 +42,23 @@ public class HomeFuncionario extends javax.swing.JFrame {
 
         HomePainel.setBackground(new java.awt.Color(255, 255, 255));
 
+        lblUsuarioLogado.setText(" ");
+
         javax.swing.GroupLayout HomePainelLayout = new javax.swing.GroupLayout(HomePainel);
         HomePainel.setLayout(HomePainelLayout);
         HomePainelLayout.setHorizontalGroup(
             HomePainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(HomePainelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblUsuarioLogado, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
         HomePainelLayout.setVerticalGroup(
             HomePainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGroup(HomePainelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblUsuarioLogado)
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         homeMenuBar.setBackground(new java.awt.Color(0, 0, 255));
@@ -285,6 +299,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     private javax.swing.JMenuBar homeMenuBar;
     private javax.swing.JMenu itemMenuEstatistica;
     private javax.swing.JMenu itemMenuFormularios;
+    private javax.swing.JLabel lblUsuarioLogado;
     private javax.swing.JMenuItem subItemAlterarUsuarios;
     private javax.swing.JMenuItem subItemCadastrarUsuario;
     private javax.swing.JMenuItem subItemDesativarUsuarios;
