@@ -10,16 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UsuarioDAO {
-//    public void create() {
-//        Connection con = ConnectionFactory.getConnection();
-//        PreparedStatement stmt = null;
-//
-//        try {
-//            stmt = con.prepareStatement("");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 
     public static boolean login(Usuario user, String email, char[] senha) {
         boolean ok = false;
