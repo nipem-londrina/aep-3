@@ -50,6 +50,11 @@ public class Login extends javax.swing.JFrame {
         txtPasswordLogin.setToolTipText("aaaaaaaaaaaa");
         txtPasswordLogin.setBorder(null);
         txtPasswordLogin.setCaretColor(new java.awt.Color(255, 0, 66));
+        txtPasswordLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordLoginKeyPressed(evt);
+            }
+        });
         jPanel2.add(txtPasswordLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 270, -1));
 
         lblEmail.setBackground(new java.awt.Color(57, 113, 177));
@@ -109,20 +114,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-//        if (connection.UsuarioDAO.login(txtEmailLogin.getText(), txtPasswordLogin.getText())) {
-//            this.dispose();
-//            new HomeFuncionario().setVisible(true);
-//        } else {
-//            lblSenhaCorreta.setText("Email ou senha incorretos.");
-//        }
         Usuario user = new Usuario();
         if (UsuarioDAO.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
             this.dispose();
             new HomeFuncionario(user).setVisible(true);
         } else {
             lblSenhaCorreta.setText("Email ou senha incorretos.");
+            txtEmailLogin.setText("");
+            txtPasswordLogin.setText("");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPasswordLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordLoginKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            btnLoginActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtPasswordLoginKeyPressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
