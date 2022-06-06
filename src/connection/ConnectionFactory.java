@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class ConnectionFactory {
 
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://database-1.csiuul0muy6o.sa-east-1.rds.amazonaws.com:3306/X_AEP_GRUPO_TOP_X";
     private static final String USER = "admin";
     private static final String PASS = "adminadmin";
