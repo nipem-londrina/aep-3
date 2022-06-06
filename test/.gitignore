@@ -1,0 +1,5 @@
+# Este arquivo segura a pasta test no reposítório para que todos
+# os contribuintes tenham acesso à sua própria pasta test vazia.
+
+*
+!.gitignore
