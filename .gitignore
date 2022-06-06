@@ -1,2 +1,4 @@
-build/
-nbproject/private/private.xml
+/build/
+/nbproject/private/private.xml
+/dist/
+/store/
