@@ -1,15 +1,22 @@
 package aep;
 
+import connection.UsuarioDAO;
+import javax.swing.JOptionPane;
+import model.Usuario;
+
 public class CadastroUsuario extends javax.swing.JFrame {
 
-    public CadastroUsuario() {
+    Usuario admin;
+    
+    public CadastroUsuario(Usuario admin) {
         initComponents();
+        this.admin = admin;
+        txtEmpresaCadastro.setText(this.admin.getEmpresa());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         painelVerlhodoTitulo = new javax.swing.JPanel();
         lblTituloCadastro = new javax.swing.JLabel();
@@ -23,16 +30,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
         lblCpf = new javax.swing.JLabel();
         lblEmpresa = new javax.swing.JLabel();
         txtMaskedCpfCadastro = new javax.swing.JFormattedTextField();
-        cbxEmpresaCadastro = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
         lblSenha = new javax.swing.JLabel();
-        cbxPasswordCadastro = new javax.swing.JPasswordField();
+        txtPasswordCadastro = new javax.swing.JPasswordField();
         lblPerfil = new javax.swing.JLabel();
         cbxPerfilCadastro = new javax.swing.JComboBox<>();
         btnCancelar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
-
-        jLabel2.setText("jLabel2");
+        txtEmpresaCadastro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sanity - Cadastrar Usuário");
@@ -117,12 +122,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         }
         jPanel1.add(txtMaskedCpfCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 60, -1));
 
-        cbxEmpresaCadastro.setForeground(new java.awt.Color(255, 0, 66));
-        cbxEmpresaCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxEmpresaCadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
-        cbxEmpresaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(cbxEmpresaCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 210, 20));
-
         jSeparator8.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator8.setForeground(new java.awt.Color(255, 0, 66));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 210, 10));
@@ -132,10 +131,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
         lblSenha.setText("Senha");
         jPanel1.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
-        cbxPasswordCadastro.setForeground(new java.awt.Color(255, 0, 66));
-        cbxPasswordCadastro.setText("jPasswordField1");
-        cbxPasswordCadastro.setBorder(null);
-        jPanel1.add(cbxPasswordCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 210, -1));
+        txtPasswordCadastro.setForeground(new java.awt.Color(255, 0, 66));
+        txtPasswordCadastro.setBorder(null);
+        jPanel1.add(txtPasswordCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 210, -1));
 
         lblPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblPerfil.setForeground(new java.awt.Color(255, 0, 66));
@@ -164,7 +162,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("CADASTRAR");
         btnCadastrar.setBorder(null);
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 150, 40));
+
+        txtEmpresaCadastro.setEditable(false);
+        txtEmpresaCadastro.setMinimumSize(new java.awt.Dimension(64, 16));
+        txtEmpresaCadastro.setPreferredSize(new java.awt.Dimension(64, 16));
+        jPanel1.add(txtEmpresaCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,19 +193,61 @@ public class CadastroUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new CadastroUsuario().setVisible(true);
-        });
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        if (true
+                && !txtNomeCadastro.getText().equals("")
+                && !txtEmailCadastro.getText().equals("")
+                && !txtPasswordCadastro.getText().equals("")
+                && txtPasswordCadastro.getPassword().length >= 8
+                && validarCpf(txtMaskedCpfCadastro.getText())) {
+            Usuario user = new Usuario();
+            user.setNome(txtNomeCadastro.getText());
+            user.setEmail(txtEmailCadastro.getText());
+            user.setCpf(txtMaskedCpfCadastro.getText());
+            user.setIdEmpresa(admin.getIdEmpresa());
+            switch (cbxPerfilCadastro.getSelectedIndex()) {
+                case 0 -> user.setPerfil('C');
+                case 1 -> user.setPerfil('A');
+                default -> throw new AssertionError();
+            }
+            UsuarioDAO.cadastrar(user, txtPasswordCadastro.getPassword());
+            txtEmailCadastro.setText("");
+            txtNomeCadastro.setText("");
+            txtMaskedCpfCadastro.setText("");
+            txtPasswordCadastro.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Login Inválido");
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    public static boolean validarCpf(String cpf) {
+
+        int o = 0;
+        int sum1 = 0;
+        int sum2 = 0;
+        boolean rep = true;
+
+        for (int i = 0; i < 13; i++) {
+            if (i % 4 != 3) {
+                //multiplica e soma os digitos. sum1 não recebe o digito 12
+                sum1 += (i != 12) ? ((cpf.charAt(i) - '0') * (10 - i + o)) : 0;
+                sum2 += (cpf.charAt(i) - '0') * (11 - i + o);
+                //verifica se todos iguais
+                rep = rep ? cpf.charAt(0) == cpf.charAt(i) : false;
+            } else {
+                //pula pontos e traços
+                o++;
+            }
+        }
+
+        //retorna se não é repetido e se as somas batem
+        return !rep && sum1 * 10 % 11 % 10 == cpf.charAt(12) - '0' && sum2 * 10 % 11 % 10 == cpf.charAt(13) - '0';
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> cbxEmpresaCadastro;
-    private javax.swing.JPasswordField cbxPasswordCadastro;
     private javax.swing.JComboBox<String> cbxPerfilCadastro;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -212,7 +262,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloCadastro;
     private javax.swing.JPanel painelVerlhodoTitulo;
     private javax.swing.JTextField txtEmailCadastro;
+    private javax.swing.JTextField txtEmpresaCadastro;
     private javax.swing.JFormattedTextField txtMaskedCpfCadastro;
     private javax.swing.JTextField txtNomeCadastro;
+    private javax.swing.JPasswordField txtPasswordCadastro;
     // End of variables declaration//GEN-END:variables
 }

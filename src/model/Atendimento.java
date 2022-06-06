@@ -1,22 +1,21 @@
-
 package model;
 
 import java.util.Date;
 
-
 public class Atendimento {
-    private int idAtendimento;
+
+    private int id;
     private int idUsuario;
     private Date data;
     private String relato;
     private int idAtendente;
 
-    public int getIdAtendimento() {
-        return idAtendimento;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAtendimento(int idAtendimento) {
-        this.idAtendimento = idAtendimento;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdUsuario() {

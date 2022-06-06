@@ -1,47 +1,33 @@
-
 package model;
 
-
 public class Usuario {
-    private int idUsuario;
-    private String perfil;
-    private String senha;
-    private int idEmpresa;
-    private String nome;
-    private String email;
-    private String cpf;
-    private boolean Status;
 
-    public boolean isStatus() {
-        return Status;
+    int id;
+    char perfil;
+    int idEmpresa;
+    String nome;
+    String email;
+    String cpf;
+    byte status;
+    
+    public String getEmpresa() {
+        return connection.UsuarioDAO.getEmpresa(this.idEmpresa);
     }
 
-    public void setStatus(boolean Status) {
-        this.Status = Status;
+    public int getId() {
+        return id;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getPerfil() {
+    public char getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(String perfil) {
+    public void setPerfil(char perfil) {
         this.perfil = perfil;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public int getIdEmpresa() {
@@ -75,5 +61,12 @@ public class Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
+    public byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(byte status) {
+        this.status = status;
+    }
 }

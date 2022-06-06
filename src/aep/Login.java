@@ -1,5 +1,6 @@
 package aep;
 
+import model.Usuario;
 import connection.UsuarioDAO;
 
 public class Login extends javax.swing.JFrame {

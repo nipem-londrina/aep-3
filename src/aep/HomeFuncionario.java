@@ -1,6 +1,9 @@
 package aep;
 
+import model.Usuario;
+
 public class HomeFuncionario extends javax.swing.JFrame {
+    Usuario user;
 
     public HomeFuncionario() {
         initComponents();
@@ -8,7 +11,8 @@ public class HomeFuncionario extends javax.swing.JFrame {
     
     public HomeFuncionario(Usuario user) {
         initComponents();
-        lblUsuarioLogado.setText("Usuário: " + user.getNome());
+        this.user = user;
+        lblUsuarioLogado.setText("Usuário: " + this.user.getNome());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -240,7 +244,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_subItemAlterarUsuariosActionPerformed
 
     private void subItemCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemCadastrarUsuarioActionPerformed
-        new CadastroUsuario().setVisible(true);
+        new CadastroUsuario(user).setVisible(true);
     }//GEN-LAST:event_subItemCadastrarUsuarioActionPerformed
 
     private void subItemDesativarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemDesativarUsuariosActionPerformed
