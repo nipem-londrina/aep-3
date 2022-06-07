@@ -1,9 +1,24 @@
 package aep;
 
+import connection.ConnectionFactory;
+import connection.UsuarioDAO;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Usuario;
+
 public class AlterarUsuario extends javax.swing.JFrame {
 
-    public AlterarUsuario() {
+    Usuario admin;
+
+    public AlterarUsuario(Usuario admin) {
         initComponents();
+        this.admin = admin;
+        getColaboradores(admin.getIdEmpresa());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,7 +38,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
         lblCPF = new javax.swing.JLabel();
         lblEmpresa = new javax.swing.JLabel();
         txtMaskCPF = new javax.swing.JFormattedTextField();
-        cbxEmpresa = new javax.swing.JComboBox<>();
         jSeparator8 = new javax.swing.JSeparator();
         lblSenha = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
@@ -33,6 +47,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         cbxIDUsuario = new javax.swing.JComboBox<>();
         lblIDUsuario = new javax.swing.JLabel();
+        txtEmpresa = new javax.swing.JTextField();
 
         jLabel2.setText("jLabel2");
 
@@ -119,12 +134,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
         }
         jPanel1.add(txtMaskCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 60, -1));
 
-        cbxEmpresa.setForeground(new java.awt.Color(255, 0, 66));
-        cbxEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxEmpresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
-        cbxEmpresa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(cbxEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 210, 20));
-
         jSeparator8.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator8.setForeground(new java.awt.Color(255, 0, 66));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 210, 10));
@@ -135,7 +144,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
         jPanel1.add(lblSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
 
         txtPassword.setForeground(new java.awt.Color(255, 0, 66));
-        txtPassword.setText("jPasswordField1");
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 210, -1));
 
@@ -168,13 +176,22 @@ public class AlterarUsuario extends javax.swing.JFrame {
         btnAlterar.setBorder(null);
         jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 540, 150, 40));
 
+        cbxIDUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         cbxIDUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
+        cbxIDUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxIDUsuarioActionPerformed(evt);
+            }
+        });
         jPanel1.add(cbxIDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 310, -1));
 
         lblIDUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIDUsuario.setForeground(new java.awt.Color(255, 0, 66));
         lblIDUsuario.setText("ID Usuário");
         jPanel1.add(lblIDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        txtEmpresa.setEditable(false);
+        jPanel1.add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,16 +212,55 @@ public class AlterarUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_bntCancelarActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new AlterarUsuario().setVisible(true);
-        });
+    private void cbxIDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxIDUsuarioActionPerformed
+        if (cbxIDUsuario.getSelectedIndex() != 0) {
+            getUsuario(cbxIDUsuario.getSelectedItem());
+        }
+    }//GEN-LAST:event_cbxIDUsuarioActionPerformed
+
+    private void getColaboradores(int id) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select id from Usuario where idEmpresa = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                cbxIDUsuario.addItem(rs.getInt("id") + "");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+    }
+
+    private void getUsuario(Object o) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("select * from Usuario where id = ?");
+            stmt.setInt(1, Integer.parseInt(o.toString()));
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                txtNome.setText(rs.getString("nome"));
+                txtEmail.setText(rs.getString("email"));
+                txtMaskCPF.setText(rs.getString("cpf"));
+                txtEmpresa.setText(rs.getInt("idEmpresa")+"");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCancelar;
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JComboBox<String> cbxEmpresa;
     private javax.swing.JComboBox<String> cbxIDUsuario;
     private javax.swing.JComboBox<String> cbxPerfil;
     private javax.swing.JLabel jLabel2;
@@ -223,6 +279,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel painelVermelho;
     private javax.swing.JLabel tituloAlterarCadastro;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmpresa;
     private javax.swing.JFormattedTextField txtMaskCPF;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtPassword;

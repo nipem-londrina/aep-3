@@ -57,16 +57,16 @@ public class UsuarioDAO {
                 stmt = con.prepareStatement("select * from Usuario where id = ?");
                 stmt.setInt(1, rs.getInt("id"));
                 rs = stmt.executeQuery();
-                rs.next();
-
-                user.setId(rs.getInt("id"));
-                user.setPerfil(rs.getString("perfil").charAt(0));
-                user.setIdEmpresa(rs.getInt("idEmpresa"));
-                user.setNome(rs.getString("nome"));
-                user.setEmail(rs.getString("email"));
-                user.setCpf(rs.getString("cpf"));
-                user.setStatus((byte) rs.getInt("status"));
-                ok = true;
+                if (rs.next()) {
+                    user.setId(rs.getInt("id"));
+                    user.setPerfil(rs.getString("perfil").charAt(0));
+                    user.setIdEmpresa(rs.getInt("idEmpresa"));
+                    user.setNome(rs.getString("nome"));
+                    user.setEmail(rs.getString("email"));
+                    user.setCpf(rs.getString("cpf"));
+                    user.setStatus((byte) rs.getInt("status"));
+                    ok = true;
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,6 +102,6 @@ public class UsuarioDAO {
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
-        return id+"";
+        return id + "";
     }
 }

@@ -240,7 +240,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void subItemAlterarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemAlterarUsuariosActionPerformed
-        new AlterarUsuario().setVisible(true);
+        new AlterarUsuario(user).setVisible(true);
     }//GEN-LAST:event_subItemAlterarUsuariosActionPerformed
 
     private void subItemCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemCadastrarUsuarioActionPerformed
