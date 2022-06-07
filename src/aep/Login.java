@@ -25,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblSenhaCorreta = new javax.swing.JLabel();
+        btnDEBUG = new javax.swing.JButton();
         painelRosa = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
 
@@ -101,6 +102,14 @@ public class Login extends javax.swing.JFrame {
         lblSenhaCorreta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel2.add(lblSenhaCorreta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
+        btnDEBUG.setText("DEBUG");
+        btnDEBUG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDEBUGActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDEBUG, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 0, 442, 501));
 
         painelRosa.setBackground(new java.awt.Color(254, 244, 247));
@@ -133,6 +142,19 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPasswordLoginKeyPressed
 
+    private void btnDEBUGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDEBUGActionPerformed
+        Usuario user = new Usuario();
+        user.setId(1);
+        user.setPerfil('A');
+        user.setIdEmpresa(1);
+        user.setNome("Erich");
+        user.setEmail("erich@email.com");
+        user.setCpf("123.456.789-09");
+        user.setStatus((byte) 1);
+        this.dispose();
+        new HomeFuncionario(user).setVisible(true);
+    }//GEN-LAST:event_btnDEBUGActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
@@ -140,6 +162,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDEBUG;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel6;
