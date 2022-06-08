@@ -206,9 +206,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             user.setCpf(txtMaskedCpfCadastro.getText());
             user.setIdEmpresa(admin.getIdEmpresa());
             switch (cbxPerfilCadastro.getSelectedIndex()) {
-                case 0 -> user.setPerfil('C');
-                case 1 -> user.setPerfil('A');
-                default -> throw new AssertionError();
+                case 0:
+                    user.setPerfil('C');
+                    break;
+                case 1: 
+                    user.setPerfil('A');
+                    break;
+                default:
+                    throw new AssertionError();
             }
             UsuarioDAO.cadastrar(user, txtPasswordCadastro.getPassword());
             txtEmailCadastro.setText("");
