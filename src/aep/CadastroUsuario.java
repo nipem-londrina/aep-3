@@ -221,7 +221,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             txtMaskedCpfCadastro.setText("");
             txtPasswordCadastro.setText("");
         } else {
-            JOptionPane.showMessageDialog(null, "Login Inválido");
+            JOptionPane.showMessageDialog(null, "Cadastro Inválido");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

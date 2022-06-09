@@ -1,13 +1,16 @@
 package aep.indev;
 
+import static aep.CadastroUsuario.validarCpf;
 import connection.ConnectionFactory;
 import connection.UsuarioDAO;
+import static java.awt.image.ImageObserver.WIDTH;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Usuario;
 
 public class NewAlterarUsuario extends javax.swing.JFrame {
@@ -171,7 +174,37 @@ public class NewAlterarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bntCancelarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        
+        if (true
+                && !txtNome.getText().equals("")
+                && !txtEmail.getText().equals("")
+                && validarCpf(txtMaskCPF.getText())) {
+            user.setNome(txtNome.getText());
+            user.setEmail(txtEmail.getText());
+            user.setCpf(txtMaskCPF.getText());
+            user.setIdEmpresa(target.getIdEmpresa());
+            switch (cbxPerfil.getSelectedIndex()) {
+                case 0:
+                    user.setPerfil('C');
+                    break;
+                case 1:
+                    user.setPerfil('A');
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            JOptionPane.showMessageDialog(null,
+                    UsuarioDAO.alterarUsuario(target.getId(),
+                            txtNome.getText(),
+                            txtEmail.getText(),
+                            txtMaskCPF.getText(),
+                            checkAtivo.isSelected(),
+                            cbxPerfil.getSelectedIndex() == 1 ? 'A' : 'C'
+                    ) ? "Cadasro bem sucediddo!" : "Erro no Cadastro..."
+            );
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Login Inválido");
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void getColaborador(int targetId) {

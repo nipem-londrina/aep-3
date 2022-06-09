@@ -162,10 +162,34 @@ public class UsuarioDAO {
         }
         return target;
     }
-    /*
+
     public static boolean alterarUsuario(int id, String nome, String email, String cpf, boolean ativo, char perfil) {
+        boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        ResultSet rs = null;
-    }*/
+
+        try {
+            stmt = con.prepareStatement("update Usuario set "
+                    + "perfil = ?, "
+                    + "nome = ?, "
+                    + "email = ?, "
+                    + "cpf = ? , "
+                    + "ativo = ? "
+                    + "where (id = ?)");
+            stmt.setString(1, perfil + "");
+            stmt.setString(2, nome);
+            stmt.setString(3, email);
+            stmt.setString(4, cpf);
+            stmt.setBoolean(5, ativo);
+            stmt.setInt(6, id);
+            stmt.executeUpdate();
+            ok = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        
+        return ok;
+    }
 }
