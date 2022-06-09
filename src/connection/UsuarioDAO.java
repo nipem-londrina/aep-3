@@ -36,7 +36,6 @@ public class UsuarioDAO {
             stmt.setString(6, user.getEmail());
             stmt.setString(7, user.getCpf());
             stmt.executeUpdate();
-            System.out.println("cadastado");
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

@@ -3,7 +3,6 @@ package aep.indev;
 import static aep.CadastroUsuario.validarCpf;
 import connection.ConnectionFactory;
 import connection.UsuarioDAO;
-import static java.awt.image.ImageObserver.WIDTH;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -199,7 +198,7 @@ public class NewAlterarUsuario extends javax.swing.JFrame {
                             txtMaskCPF.getText(),
                             checkAtivo.isSelected(),
                             cbxPerfil.getSelectedIndex() == 1 ? 'A' : 'C'
-                    ) ? "Cadasro bem sucediddo!" : "Erro no Cadastro..."
+                    ) ? "Alteração bem sucedida!" : "Erro na alteração..."
             );
             this.dispose();
         } else {

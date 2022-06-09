@@ -17,19 +17,24 @@ public class NewHome extends javax.swing.JFrame {
     public NewHome(Usuario user) {
         this.user = user;
         initComponents();
+        tableModel = (DefaultTableModel) jTable2.getModel();
 
         //redimensiona as colunas
         jTable2.setRowHeight(22);
+        jTable2.getColumnModel().getColumn(0).setMinWidth(0);
+        jTable2.getColumnModel().getColumn(0).setMaxWidth(0);
         jTable2.getColumnModel().getColumn(2).setMinWidth(84);
         jTable2.getColumnModel().getColumn(2).setMaxWidth(84);
         jTable2.getColumnModel().getColumn(3).setMinWidth(75);
         jTable2.getColumnModel().getColumn(3).setMaxWidth(75);
+        
+        //renderiza a coluna de Editar
         jTable2.getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
                 JLabel l = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
                 l.setBackground(new java.awt.Color(255, 0, 66));
-                l.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+                l.setFont(new java.awt.Font("Century Gothic", 0, 12));
                 l.setForeground(new java.awt.Color(255, 255, 255));
                 l.setBorder(null);
                 return l;
@@ -46,8 +51,8 @@ public class NewHome extends javax.swing.JFrame {
                 }
             }
         });
-
-        tableModel = (DefaultTableModel) jTable2.getModel();
+        
+        //preencher tabela ao entrar
         preecherTabela(user, 0, true, false);
     }
 
