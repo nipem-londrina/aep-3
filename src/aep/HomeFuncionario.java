@@ -21,25 +21,27 @@ public class HomeFuncionario extends javax.swing.JFrame {
         HomePainel = new javax.swing.JPanel();
         lblUsuarioLogado = new javax.swing.JLabel();
         homeMenuBar = new javax.swing.JMenuBar();
-        ItemMenuUsuarios = new javax.swing.JMenu();
-        subItemCadastrarUsuario = new javax.swing.JMenuItem();
-        subItemAlterarUsuarios = new javax.swing.JMenuItem();
-        subItemDesativarUsuarios = new javax.swing.JMenuItem();
-        itemMenuFormularios = new javax.swing.JMenu();
-        subItemFormulario = new javax.swing.JMenu();
+        menuUsuarios = new javax.swing.JMenu();
+        itemCadastrarUsuario = new javax.swing.JMenuItem();
+        itemAlterarUsuarios = new javax.swing.JMenuItem();
+        itemDesativarUsuarios = new javax.swing.JMenuItem();
+        menuFormularios = new javax.swing.JMenu();
+        itemFormulario = new javax.swing.JMenu();
         subItemFormularioCriar = new javax.swing.JMenuItem();
         subItemFormularioDesativar = new javax.swing.JMenuItem();
         subItemFormularioAlterar = new javax.swing.JMenuItem();
-        subItemPergunta = new javax.swing.JMenu();
+        itemPergunta = new javax.swing.JMenu();
         subItemPerguntaCriar = new javax.swing.JMenuItem();
         subItemPerguntaDesativar = new javax.swing.JMenuItem();
         subItemPerguntaAlterar = new javax.swing.JMenuItem();
-        subItemResposta = new javax.swing.JMenu();
+        itemResposta = new javax.swing.JMenu();
         subItemRespotaCriar = new javax.swing.JMenuItem();
         subItemRespostaDesativar = new javax.swing.JMenuItem();
         subItemRespostaAlterar = new javax.swing.JMenuItem();
-        itemMenuEstatistica = new javax.swing.JMenu();
-        subItemEstatisticas = new javax.swing.JMenuItem();
+        menuEstatistica = new javax.swing.JMenu();
+        itemEstatisticas = new javax.swing.JMenuItem();
+        menuIndev = new javax.swing.JMenu();
+        itemIndev = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sanity");
@@ -62,55 +64,55 @@ public class HomeFuncionario extends javax.swing.JFrame {
             .addGroup(HomePainelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUsuarioLogado)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         homeMenuBar.setBackground(new java.awt.Color(0, 0, 255));
         homeMenuBar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         homeMenuBar.setForeground(new java.awt.Color(255, 255, 255));
 
-        ItemMenuUsuarios.setBackground(new java.awt.Color(255, 0, 66));
-        ItemMenuUsuarios.setBorder(null);
-        ItemMenuUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        ItemMenuUsuarios.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
-        ItemMenuUsuarios.setLabel("USUÁRIOS");
+        menuUsuarios.setBackground(new java.awt.Color(255, 0, 66));
+        menuUsuarios.setBorder(null);
+        menuUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        menuUsuarios.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
+        menuUsuarios.setLabel("USUÁRIOS");
 
-        subItemCadastrarUsuario.setForeground(new java.awt.Color(255, 0, 66));
-        subItemCadastrarUsuario.setText("Cadastrar");
-        subItemCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        itemCadastrarUsuario.setForeground(new java.awt.Color(255, 0, 66));
+        itemCadastrarUsuario.setText("Cadastrar");
+        itemCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subItemCadastrarUsuarioActionPerformed(evt);
+                itemCadastrarUsuarioActionPerformed(evt);
             }
         });
-        ItemMenuUsuarios.add(subItemCadastrarUsuario);
+        menuUsuarios.add(itemCadastrarUsuario);
 
-        subItemAlterarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
-        subItemAlterarUsuarios.setText("Alterar");
-        subItemAlterarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        itemAlterarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
+        itemAlterarUsuarios.setText("Alterar");
+        itemAlterarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subItemAlterarUsuariosActionPerformed(evt);
+                itemAlterarUsuariosActionPerformed(evt);
             }
         });
-        ItemMenuUsuarios.add(subItemAlterarUsuarios);
+        menuUsuarios.add(itemAlterarUsuarios);
 
-        subItemDesativarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
-        subItemDesativarUsuarios.setText("Desativar");
-        subItemDesativarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        itemDesativarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
+        itemDesativarUsuarios.setText("Desativar");
+        itemDesativarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subItemDesativarUsuariosActionPerformed(evt);
+                itemDesativarUsuariosActionPerformed(evt);
             }
         });
-        ItemMenuUsuarios.add(subItemDesativarUsuarios);
+        menuUsuarios.add(itemDesativarUsuarios);
 
-        homeMenuBar.add(ItemMenuUsuarios);
+        homeMenuBar.add(menuUsuarios);
 
-        itemMenuFormularios.setBorder(null);
-        itemMenuFormularios.setForeground(new java.awt.Color(255, 0, 66));
-        itemMenuFormularios.setText("FORMULÁRIOS");
-        itemMenuFormularios.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
+        menuFormularios.setBorder(null);
+        menuFormularios.setForeground(new java.awt.Color(255, 0, 66));
+        menuFormularios.setText("FORMULÁRIOS");
+        menuFormularios.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
 
-        subItemFormulario.setForeground(new java.awt.Color(255, 0, 66));
-        subItemFormulario.setText("Formulário");
+        itemFormulario.setForeground(new java.awt.Color(255, 0, 66));
+        itemFormulario.setText("Formulário");
 
         subItemFormularioCriar.setForeground(new java.awt.Color(255, 0, 66));
         subItemFormularioCriar.setText("Criar");
@@ -119,7 +121,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemFormularioCriarActionPerformed(evt);
             }
         });
-        subItemFormulario.add(subItemFormularioCriar);
+        itemFormulario.add(subItemFormularioCriar);
 
         subItemFormularioDesativar.setForeground(new java.awt.Color(255, 0, 66));
         subItemFormularioDesativar.setText("Desativar");
@@ -128,7 +130,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemFormularioDesativarActionPerformed(evt);
             }
         });
-        subItemFormulario.add(subItemFormularioDesativar);
+        itemFormulario.add(subItemFormularioDesativar);
 
         subItemFormularioAlterar.setForeground(new java.awt.Color(255, 0, 66));
         subItemFormularioAlterar.setText("Alterar");
@@ -137,12 +139,12 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemFormularioAlterarActionPerformed(evt);
             }
         });
-        subItemFormulario.add(subItemFormularioAlterar);
+        itemFormulario.add(subItemFormularioAlterar);
 
-        itemMenuFormularios.add(subItemFormulario);
+        menuFormularios.add(itemFormulario);
 
-        subItemPergunta.setForeground(new java.awt.Color(255, 0, 66));
-        subItemPergunta.setText("Pergunta");
+        itemPergunta.setForeground(new java.awt.Color(255, 0, 66));
+        itemPergunta.setText("Pergunta");
 
         subItemPerguntaCriar.setForeground(new java.awt.Color(255, 0, 66));
         subItemPerguntaCriar.setText("Criar");
@@ -151,7 +153,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemPerguntaCriarActionPerformed(evt);
             }
         });
-        subItemPergunta.add(subItemPerguntaCriar);
+        itemPergunta.add(subItemPerguntaCriar);
 
         subItemPerguntaDesativar.setForeground(new java.awt.Color(255, 0, 66));
         subItemPerguntaDesativar.setText("Desativar");
@@ -160,7 +162,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemPerguntaDesativarActionPerformed(evt);
             }
         });
-        subItemPergunta.add(subItemPerguntaDesativar);
+        itemPergunta.add(subItemPerguntaDesativar);
 
         subItemPerguntaAlterar.setForeground(new java.awt.Color(255, 0, 66));
         subItemPerguntaAlterar.setText("Alterar");
@@ -169,12 +171,12 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemPerguntaAlterarActionPerformed(evt);
             }
         });
-        subItemPergunta.add(subItemPerguntaAlterar);
+        itemPergunta.add(subItemPerguntaAlterar);
 
-        itemMenuFormularios.add(subItemPergunta);
+        menuFormularios.add(itemPergunta);
 
-        subItemResposta.setForeground(new java.awt.Color(255, 0, 66));
-        subItemResposta.setText("Resposta");
+        itemResposta.setForeground(new java.awt.Color(255, 0, 66));
+        itemResposta.setText("Resposta");
 
         subItemRespotaCriar.setForeground(new java.awt.Color(255, 0, 66));
         subItemRespotaCriar.setText("Criar");
@@ -183,7 +185,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemRespotaCriarActionPerformed(evt);
             }
         });
-        subItemResposta.add(subItemRespotaCriar);
+        itemResposta.add(subItemRespotaCriar);
 
         subItemRespostaDesativar.setForeground(new java.awt.Color(255, 0, 66));
         subItemRespostaDesativar.setText("Desativar");
@@ -192,7 +194,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemRespostaDesativarActionPerformed(evt);
             }
         });
-        subItemResposta.add(subItemRespostaDesativar);
+        itemResposta.add(subItemRespostaDesativar);
 
         subItemRespostaAlterar.setForeground(new java.awt.Color(255, 0, 66));
         subItemRespostaAlterar.setText("Alterar");
@@ -201,26 +203,38 @@ public class HomeFuncionario extends javax.swing.JFrame {
                 subItemRespostaAlterarActionPerformed(evt);
             }
         });
-        subItemResposta.add(subItemRespostaAlterar);
+        itemResposta.add(subItemRespostaAlterar);
 
-        itemMenuFormularios.add(subItemResposta);
+        menuFormularios.add(itemResposta);
 
-        homeMenuBar.add(itemMenuFormularios);
+        homeMenuBar.add(menuFormularios);
 
-        itemMenuEstatistica.setBorder(null);
-        itemMenuEstatistica.setForeground(new java.awt.Color(255, 0, 66));
-        itemMenuEstatistica.setText("ESTATÍSTICAS");
-        itemMenuEstatistica.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
+        menuEstatistica.setBorder(null);
+        menuEstatistica.setForeground(new java.awt.Color(255, 0, 66));
+        menuEstatistica.setText("ESTATÍSTICAS");
+        menuEstatistica.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
 
-        subItemEstatisticas.setText("Estatísticas");
-        subItemEstatisticas.addActionListener(new java.awt.event.ActionListener() {
+        itemEstatisticas.setText("Estatísticas");
+        itemEstatisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subItemEstatisticasActionPerformed(evt);
+                itemEstatisticasActionPerformed(evt);
             }
         });
-        itemMenuEstatistica.add(subItemEstatisticas);
+        menuEstatistica.add(itemEstatisticas);
 
-        homeMenuBar.add(itemMenuEstatistica);
+        homeMenuBar.add(menuEstatistica);
+
+        menuIndev.setText("INDEV");
+
+        itemIndev.setText("Usuários");
+        itemIndev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIndevActionPerformed(evt);
+            }
+        });
+        menuIndev.add(itemIndev);
+
+        homeMenuBar.add(menuIndev);
 
         setJMenuBar(homeMenuBar);
 
@@ -239,17 +253,17 @@ public class HomeFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void subItemAlterarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemAlterarUsuariosActionPerformed
+    private void itemAlterarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAlterarUsuariosActionPerformed
         new AlterarUsuario(user).setVisible(true);
-    }//GEN-LAST:event_subItemAlterarUsuariosActionPerformed
+    }//GEN-LAST:event_itemAlterarUsuariosActionPerformed
 
-    private void subItemCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemCadastrarUsuarioActionPerformed
+    private void itemCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarUsuarioActionPerformed
         new CadastroUsuario(user).setVisible(true);
-    }//GEN-LAST:event_subItemCadastrarUsuarioActionPerformed
+    }//GEN-LAST:event_itemCadastrarUsuarioActionPerformed
 
-    private void subItemDesativarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemDesativarUsuariosActionPerformed
+    private void itemDesativarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDesativarUsuariosActionPerformed
         new DesativarUsuario().setVisible(true);
-    }//GEN-LAST:event_subItemDesativarUsuariosActionPerformed
+    }//GEN-LAST:event_itemDesativarUsuariosActionPerformed
 
     private void subItemFormularioCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemFormularioCriarActionPerformed
         new CadastroFormulario().setVisible(true);
@@ -287,9 +301,13 @@ public class HomeFuncionario extends javax.swing.JFrame {
         new AlterarResposta().setVisible(true);
     }//GEN-LAST:event_subItemRespostaAlterarActionPerformed
 
-    private void subItemEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemEstatisticasActionPerformed
+    private void itemEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEstatisticasActionPerformed
         new Estatisticas().setVisible(true);
-    }//GEN-LAST:event_subItemEstatisticasActionPerformed
+    }//GEN-LAST:event_itemEstatisticasActionPerformed
+
+    private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
+        new aep.indev.NewHome(user).setVisible(true);
+    }//GEN-LAST:event_itemIndevActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
@@ -299,24 +317,26 @@ public class HomeFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HomePainel;
-    private javax.swing.JMenu ItemMenuUsuarios;
     private javax.swing.JMenuBar homeMenuBar;
-    private javax.swing.JMenu itemMenuEstatistica;
-    private javax.swing.JMenu itemMenuFormularios;
+    private javax.swing.JMenuItem itemAlterarUsuarios;
+    private javax.swing.JMenuItem itemCadastrarUsuario;
+    private javax.swing.JMenuItem itemDesativarUsuarios;
+    private javax.swing.JMenuItem itemEstatisticas;
+    private javax.swing.JMenu itemFormulario;
+    private javax.swing.JMenuItem itemIndev;
+    private javax.swing.JMenu itemPergunta;
+    private javax.swing.JMenu itemResposta;
     private javax.swing.JLabel lblUsuarioLogado;
-    private javax.swing.JMenuItem subItemAlterarUsuarios;
-    private javax.swing.JMenuItem subItemCadastrarUsuario;
-    private javax.swing.JMenuItem subItemDesativarUsuarios;
-    private javax.swing.JMenuItem subItemEstatisticas;
-    private javax.swing.JMenu subItemFormulario;
+    private javax.swing.JMenu menuEstatistica;
+    private javax.swing.JMenu menuFormularios;
+    private javax.swing.JMenu menuIndev;
+    private javax.swing.JMenu menuUsuarios;
     private javax.swing.JMenuItem subItemFormularioAlterar;
     private javax.swing.JMenuItem subItemFormularioCriar;
     private javax.swing.JMenuItem subItemFormularioDesativar;
-    private javax.swing.JMenu subItemPergunta;
     private javax.swing.JMenuItem subItemPerguntaAlterar;
     private javax.swing.JMenuItem subItemPerguntaCriar;
     private javax.swing.JMenuItem subItemPerguntaDesativar;
-    private javax.swing.JMenu subItemResposta;
     private javax.swing.JMenuItem subItemRespostaAlterar;
     private javax.swing.JMenuItem subItemRespostaDesativar;
     private javax.swing.JMenuItem subItemRespotaCriar;

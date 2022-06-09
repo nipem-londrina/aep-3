@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Arrays;
 import model.Usuario;
 import java.util.logging.Level;
@@ -26,7 +27,7 @@ public class UsuarioDAO {
         random.nextBytes(salt);
 
         try {
-            stmt = con.prepareStatement("INSERT INTO Usuario (perfil, senhaHash, senhaSal, idEmpresa, nome, email, cpf, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt = con.prepareStatement("INSERT INTO Usuario (perfil, senhaHash, senhaSal, idEmpresa, nome, email, cpf) VALUES (?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, String.valueOf(user.getPerfil()));
             stmt.setBytes(2, pbkdf2(senha, salt));
             stmt.setBytes(3, salt);
@@ -34,7 +35,6 @@ public class UsuarioDAO {
             stmt.setString(5, user.getNome());
             stmt.setString(6, user.getEmail());
             stmt.setString(7, user.getCpf());
-            stmt.setInt(8, user.getStatus());
             stmt.executeUpdate();
             System.out.println("cadastado");
         } catch (SQLException ex) {
@@ -64,7 +64,7 @@ public class UsuarioDAO {
                     user.setNome(rs.getString("nome"));
                     user.setEmail(rs.getString("email"));
                     user.setCpf(rs.getString("cpf"));
-                    user.setStatus((byte) rs.getInt("status"));
+                    user.setAtivo(rs.getBoolean("ativo"));
                     ok = true;
                 }
             }
@@ -104,4 +104,68 @@ public class UsuarioDAO {
         }
         return id + "";
     }
+
+    public static ArrayList<Usuario> getDezColaboradores(Usuario user, int pag, boolean c, boolean a) {
+        ArrayList<Usuario> lista = new ArrayList<>();
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select id, nome, cpf from Usuario "
+                    + "where idEmpresa = ? "
+                    + ((c && !a) ? "and perfil = 'C' " : "")
+                    + ((!c && a) ? "and perfil = 'A' " : "")
+                    + "order by nome limit ?, 10");
+            stmt.setInt(1, user.getIdEmpresa());
+            stmt.setInt(2, (pag * 10));
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                lista.add(new Usuario(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("cpf")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return lista;
+    }
+
+    public static Usuario getUsuario(int targetId) {
+        Usuario target = new Usuario();
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("select * from Usuario where id = ?");
+            stmt.setInt(1, targetId);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                target.setId(rs.getInt("id"));
+                target.setPerfil(rs.getString("perfil").charAt(0));
+                target.setIdEmpresa(rs.getInt("idEmpresa"));
+                target.setNome(rs.getString("nome"));
+                target.setEmail(rs.getString("email"));
+                target.setCpf(rs.getString("cpf"));
+                target.setAtivo(rs.getBoolean("ativo"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return target;
+    }
+    /*
+    public static boolean alterarUsuario(int id, String nome, String email, String cpf, boolean ativo, char perfil) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+    }*/
 }

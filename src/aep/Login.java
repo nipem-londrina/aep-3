@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
         user.setNome("Erich");
         user.setEmail("erich@email.com");
         user.setCpf("123.456.789-09");
-        user.setStatus((byte) 1);
+        user.setAtivo(true);
         this.dispose();
         new HomeFuncionario(user).setVisible(true);
     }//GEN-LAST:event_btnDEBUGActionPerformed

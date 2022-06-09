@@ -8,7 +8,15 @@ public class Usuario {
     String nome;
     String email;
     String cpf;
-    byte status;
+    boolean ativo;
+    
+    public Usuario() {}
+    
+    public Usuario(int id, String nome, String cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
     
     public String getEmpresa() {
         return connection.UsuarioDAO.getEmpresa(this.idEmpresa);
@@ -62,11 +70,11 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public byte getStatus() {
-        return status;
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    public void setStatus(byte status) {
-        this.status = status;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }
