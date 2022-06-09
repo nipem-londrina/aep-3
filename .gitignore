@@ -1,4 +1,5 @@
-/build/
-/nbproject/private/private.xml
-/dist/
-/store/
+build/
+nbproject/private/private.xml
+dist/
+store/
+nbproject/private/private.properties
