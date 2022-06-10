@@ -18,6 +18,9 @@ import javax.crypto.spec.PBEKeySpec;
 
 public class UsuarioDAO {
 
+    private UsuarioDAO() {
+    }
+
     public static void cadastrar(Usuario user, char[] senha) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -188,7 +191,7 @@ public class UsuarioDAO {
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
-        
+
         return ok;
     }
 }

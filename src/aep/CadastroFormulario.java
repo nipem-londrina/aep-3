@@ -1,6 +1,11 @@
 package aep;
 
+import java.util.ArrayList;
+
 public class CadastroFormulario extends javax.swing.JFrame {
+    String titulo;
+    String descricao;
+    ArrayList<String> perguntas;
 
     public CadastroFormulario() {
         initComponents();
@@ -9,7 +14,6 @@ public class CadastroFormulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         painelVermelho = new javax.swing.JPanel();
         txtTituloFormulario = new javax.swing.JLabel();
@@ -20,13 +24,14 @@ public class CadastroFormulario extends javax.swing.JFrame {
         lblDescricao = new javax.swing.JLabel();
         btnCancelarFormulario = new javax.swing.JButton();
         btnCadastrarFormulario = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollDescricao = new javax.swing.JScrollPane();
         txaDescricao = new javax.swing.JTextArea();
-        lblTitulo1 = new javax.swing.JLabel();
-        txtTitulo1 = new javax.swing.JTextField();
+        lblPerguntas = new javax.swing.JLabel();
+        scrollPergunta = new javax.swing.JScrollPane();
+        txaPergunta = new javax.swing.JTextArea();
         jSeparator7 = new javax.swing.JSeparator();
-
-        jLabel2.setText("jLabel2");
+        btnSeguinte = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sanity - Cadastrar Formulário");
@@ -63,25 +68,25 @@ public class CadastroFormulario extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 0, 66));
         lblTitulo.setText("Título");
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         txtTitulo.setForeground(new java.awt.Color(255, 0, 66));
         txtTitulo.setBorder(null);
         txtTitulo.setCaretColor(new java.awt.Color(255, 0, 66));
-        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 310, -1));
+        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 310, -1));
 
         jSeparator5.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator5.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 310, 10));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 310, 10));
 
         jSeparator6.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator6.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 310, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 310, 10));
 
         lblDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(255, 0, 66));
         lblDescricao.setText("Descrição");
-        jPanel1.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jPanel1.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         btnCancelarFormulario.setBackground(new java.awt.Color(153, 153, 153));
         btnCancelarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -93,37 +98,45 @@ public class CadastroFormulario extends javax.swing.JFrame {
                 btnCancelarFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 150, 40));
+        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 150, 40));
 
         btnCadastrarFormulario.setBackground(new java.awt.Color(255, 0, 66));
         btnCadastrarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnCadastrarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarFormulario.setText("CADASTRAR");
         btnCadastrarFormulario.setBorder(null);
-        jPanel1.add(btnCadastrarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 150, 40));
+        jPanel1.add(btnCadastrarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 150, 40));
 
         txaDescricao.setColumns(20);
         txaDescricao.setForeground(new java.awt.Color(255, 0, 66));
         txaDescricao.setRows(5);
         txaDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
-        jScrollPane1.setViewportView(txaDescricao);
+        scrollDescricao.setViewportView(txaDescricao);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 310, -1));
+        jPanel1.add(scrollDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 310, -1));
 
-        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTitulo1.setForeground(new java.awt.Color(255, 0, 66));
-        lblTitulo1.setText("ID Formuário");
-        jPanel1.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        lblPerguntas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPerguntas.setForeground(new java.awt.Color(255, 0, 66));
+        lblPerguntas.setText("Perguntas");
+        jPanel1.add(lblPerguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
-        txtTitulo1.setEditable(false);
-        txtTitulo1.setForeground(new java.awt.Color(255, 0, 66));
-        txtTitulo1.setBorder(null);
-        txtTitulo1.setCaretColor(new java.awt.Color(255, 0, 66));
-        jPanel1.add(txtTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, -1));
+        txaPergunta.setColumns(20);
+        txaPergunta.setForeground(new java.awt.Color(255, 0, 66));
+        txaPergunta.setRows(3);
+        txaPergunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
+        scrollPergunta.setViewportView(txaPergunta);
+
+        jPanel1.add(scrollPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 310, -1));
 
         jSeparator7.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator7.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 140, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 310, 10));
+
+        btnSeguinte.setText(">");
+        jPanel1.add(btnSeguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+
+        btnAnterior.setText("<");
+        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +146,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -151,21 +164,23 @@ public class CadastroFormulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnCadastrarFormulario;
     private javax.swing.JButton btnCancelarFormulario;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnSeguinte;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lblDescricao;
+    private javax.swing.JLabel lblPerguntas;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JPanel painelVermelho;
+    private javax.swing.JScrollPane scrollDescricao;
+    private javax.swing.JScrollPane scrollPergunta;
     private javax.swing.JTextArea txaDescricao;
+    private javax.swing.JTextArea txaPergunta;
     private javax.swing.JTextField txtTitulo;
-    private javax.swing.JTextField txtTitulo1;
     private javax.swing.JLabel txtTituloFormulario;
     // End of variables declaration//GEN-END:variables
 }
