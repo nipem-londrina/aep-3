@@ -34,126 +34,26 @@ public final class Estatisticas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        iconEstatistica = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Dashboard1 = new javax.swing.JPanel();
-        Dashboard3 = new javax.swing.JPanel();
+        panelRosa = new javax.swing.JPanel();
+        logoSanity = new javax.swing.JLabel();
+        nomeSanity = new javax.swing.JLabel();
+        iconAdmin = new javax.swing.JLabel();
+        nomeAdmin = new javax.swing.JLabel();
+        panelCinza = new javax.swing.JPanel();
+        buttonHome = new javax.swing.JButton();
+        buttonForms = new javax.swing.JButton();
+        buttonEstatistica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sanity - Estatísticas");
         setBackground(new java.awt.Color(251, 251, 251));
+        setPreferredSize(new java.awt.Dimension(1032, 590));
 
         jPanel1.setBackground(new java.awt.Color(251, 251, 251));
         jPanel1.setPreferredSize(new java.awt.Dimension(1032, 549));
-
-        kGradientPanel1.setInheritsPopupMenu(true);
-        kGradientPanel1.setkEndColor(new java.awt.Color(255, 0, 66));
-        kGradientPanel1.setkGradientFocus(50);
-        kGradientPanel1.setkStartColor(new java.awt.Color(255, 169, 191));
-
-        iconEstatistica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconEstatistica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/estatistica.png"))); // NOI18N
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/formulario.png"))); // NOI18N
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Usuarios");
-        jLabel7.setToolTipText("");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logomenorbranco.png"))); // NOI18N
-        jLabel1.setToolTipText("");
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/usuarios.png"))); // NOI18N
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/usuarioatual.png"))); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Perfil");
-        jLabel8.setToolTipText("");
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Formularios");
-        jLabel9.setToolTipText("");
-
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Estatistica");
-        jLabel10.setToolTipText("");
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(iconEstatistica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(jLabel3)
-                                .addGap(8, 8, 8))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(iconEstatistica)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(276, 276, 276)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,43 +70,115 @@ public final class Estatisticas extends javax.swing.JFrame {
 
         Dashboard1.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout Dashboard3Layout = new javax.swing.GroupLayout(Dashboard3);
-        Dashboard3.setLayout(Dashboard3Layout);
-        Dashboard3Layout.setHorizontalGroup(
-            Dashboard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
-        );
-        Dashboard3Layout.setVerticalGroup(
-            Dashboard3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        panelRosa.setBackground(new java.awt.Color(255, 0, 66));
+        panelRosa.setMaximumSize(new java.awt.Dimension(1900, 1023));
+        panelRosa.setPreferredSize(new java.awt.Dimension(1032, 40));
+        panelRosa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logoSanity.png"))); // NOI18N
+        logoSanity.setToolTipText("");
+        logoSanity.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelRosa.add(logoSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
+
+        nomeSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/iconSanity.png"))); // NOI18N
+        nomeSanity.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        nomeSanity.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        nomeSanity.setVerifyInputWhenFocusTarget(false);
+        panelRosa.add(nomeSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
+
+        iconAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/male_user_50px.png"))); // NOI18N
+        panelRosa.add(iconAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
+
+        nomeAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeAdmin.setForeground(new java.awt.Color(251, 251, 251));
+        nomeAdmin.setText("Olá, Admin");
+        panelRosa.add(nomeAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 100, 60));
+
+        panelCinza.setBackground(new java.awt.Color(51, 51, 51));
+        panelCinza.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonHome.setBackground(new java.awt.Color(0, 0, 0));
+        buttonHome.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        buttonHome.setForeground(new java.awt.Color(251, 251, 251));
+        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/home_24px.png"))); // NOI18N
+        buttonHome.setText("   Pagina Inicial");
+        buttonHome.setBorderPainted(false);
+        buttonHome.setContentAreaFilled(false);
+        buttonHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonHome.setOpaque(true);
+        buttonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHomeActionPerformed(evt);
+            }
+        });
+        panelCinza.add(buttonHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 40));
+
+        buttonForms.setBackground(new java.awt.Color(0, 0, 0));
+        buttonForms.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        buttonForms.setForeground(new java.awt.Color(251, 251, 251));
+        buttonForms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/edit_property_24px.png"))); // NOI18N
+        buttonForms.setText("   Formulários");
+        buttonForms.setToolTipText("");
+        buttonForms.setBorderPainted(false);
+        buttonForms.setContentAreaFilled(false);
+        buttonForms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonForms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonForms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFormsActionPerformed(evt);
+            }
+        });
+        panelCinza.add(buttonForms, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 170, 40));
+
+        buttonEstatistica.setBackground(new java.awt.Color(0, 0, 0));
+        buttonEstatistica.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        buttonEstatistica.setForeground(new java.awt.Color(251, 251, 251));
+        buttonEstatistica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/account_24px.png"))); // NOI18N
+        buttonEstatistica.setText("   Estatísticas");
+        buttonEstatistica.setToolTipText("");
+        buttonEstatistica.setBorderPainted(false);
+        buttonEstatistica.setContentAreaFilled(false);
+        buttonEstatistica.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonEstatistica.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonEstatistica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEstatisticaActionPerformed(evt);
+            }
+        });
+        panelCinza.add(buttonEstatistica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 170, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Dashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(Dashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(420, Short.MAX_VALUE))
+                        .addComponent(panelCinza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Dashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelRosa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Dashboard1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Dashboard3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addComponent(panelRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Dashboard1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(panelCinza, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,11 +189,23 @@ public final class Estatisticas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonEstatisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEstatisticaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonEstatisticaActionPerformed
+
+    private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonFormsActionPerformed
+
+    private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonHomeActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new Estatisticas().setVisible(true);
@@ -230,20 +214,17 @@ public final class Estatisticas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Dashboard1;
-    private javax.swing.JPanel Dashboard3;
-    private javax.swing.JLabel iconEstatistica;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton buttonEstatistica;
+    private javax.swing.JButton buttonForms;
+    private javax.swing.JButton buttonHome;
+    private javax.swing.JLabel iconAdmin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel logoSanity;
+    private javax.swing.JLabel nomeAdmin;
+    private javax.swing.JLabel nomeSanity;
+    private javax.swing.JPanel panelCinza;
+    private javax.swing.JPanel panelRosa;
     // End of variables declaration//GEN-END:variables
 }
