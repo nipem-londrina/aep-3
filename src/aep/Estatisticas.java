@@ -6,31 +6,29 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-
 public final class Estatisticas extends javax.swing.JFrame {
 
     public Estatisticas() {
         initComponents();
         showPieChart();
     }
-    
-public void showPieChart(){
-        
-       DefaultPieDataset dataset = new DefaultPieDataset();
-       dataset.setValue("Ansiedade", 10);
-       dataset.setValue("Depressão", 20);
-       dataset.setValue("Descontente", 5);
-       dataset.setValue("Satisfeito", 18);
-       dataset.setValue("Preocupado", 6);
-       JFreeChart showPieChart=ChartFactory.createPieChart("Dashboard Sanity", dataset, true, true, false);
-       
-       JPanel panelshowPieChart=new ChartPanel(showPieChart);
-       Dashboard1.add(panelshowPieChart);
-       
+
+    public void showPieChart() {
+
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Ansiedade", 10);
+        dataset.setValue("Depressão", 20);
+        dataset.setValue("Descontente", 5);
+        dataset.setValue("Satisfeito", 18);
+        dataset.setValue("Preocupado", 6);
+
+        JFreeChart showPieChart = ChartFactory.createPieChart("Dashboard Sanity", dataset, true, true, false);
+
+        JPanel panelshowPieChart = new ChartPanel(showPieChart);
+        Dashboard1.add(panelshowPieChart);
     }
 
     /*=============================================================================*/
-    
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -170,16 +168,7 @@ public void showPieChart(){
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout Dashboard1Layout = new javax.swing.GroupLayout(Dashboard1);
-        Dashboard1.setLayout(Dashboard1Layout);
-        Dashboard1Layout.setHorizontalGroup(
-            Dashboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
-        );
-        Dashboard1Layout.setVerticalGroup(
-            Dashboard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 233, Short.MAX_VALUE)
-        );
+        Dashboard1.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout Dashboard3Layout = new javax.swing.GroupLayout(Dashboard3);
         Dashboard3.setLayout(Dashboard3Layout);
@@ -205,7 +194,7 @@ public void showPieChart(){
                         .addGap(67, 67, 67)
                         .addComponent(Dashboard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +206,7 @@ public void showPieChart(){
                     .addComponent(Dashboard3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(477, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -257,6 +246,4 @@ public void showPieChart(){
     private javax.swing.JTable jTable1;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
-
-    
 }
