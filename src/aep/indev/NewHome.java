@@ -1,23 +1,44 @@
 package aep.indev;
 
 import connection.UsuarioDAO;
-import java.awt.Component;
+import java.awt.CardLayout;
 import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 import model.Usuario;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class NewHome extends javax.swing.JFrame {
 
     Usuario user;
-    DefaultTableModel tableModel;
+    javax.swing.table.DefaultTableModel tableModel;
 
     public NewHome(Usuario user) {
         this.user = user;
-        initComponents();
-        tableModel = (DefaultTableModel) jTable2.getModel();
+        initComponents(); 
+        mostrarTabelaUsuarios();
+        mostrarGrafico();
+        nomeAdmin.setText("Olá, " + this.user.getNome());
+    }
+
+    private void mostrarGrafico() {
+
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Ansiedade", 10);
+        dataset.setValue("Depressão", 20);
+        dataset.setValue("Descontente", 5);
+        dataset.setValue("Satisfeito", 18);
+        dataset.setValue("Preocupado", 6);
+
+        JFreeChart showPieChart = ChartFactory.createPieChart("Dashboard Sanity", dataset, true, true, false);
+
+        javax.swing.JPanel panelshowPieChart = new ChartPanel(showPieChart);
+        dashboard1.add(panelshowPieChart);
+    }
+    
+    private void mostrarTabelaUsuarios() {
+        tableModel = (javax.swing.table.DefaultTableModel) jTable2.getModel();
 
         //redimensiona as colunas
         jTable2.setRowHeight(22);
@@ -29,10 +50,10 @@ public class NewHome extends javax.swing.JFrame {
         jTable2.getColumnModel().getColumn(3).setMaxWidth(75);
         
         //renderiza a coluna de Editar
-        jTable2.getColumnModel().getColumn(3).setCellRenderer(new DefaultTableCellRenderer() {
+        jTable2.getColumnModel().getColumn(3).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
-                JLabel l = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+                javax.swing.JLabel l = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
                 l.setBackground(new java.awt.Color(255, 0, 66));
                 l.setFont(new java.awt.Font("Century Gothic", 0, 12));
                 l.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,24 +91,27 @@ public class NewHome extends javax.swing.JFrame {
         buttonForms = new javax.swing.JButton();
         buttonEstatistica = new javax.swing.JButton();
         main = new javax.swing.JPanel();
+        usuarios = new javax.swing.JPanel();
         mainzinho = new javax.swing.JPanel();
+        addUsuario = new javax.swing.JButton();
         nav = new javax.swing.JPanel();
-        checkColaborador = new javax.swing.JCheckBox();
-        checkAdministrador = new javax.swing.JCheckBox();
-        btnPesquisar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        addUsuario = new javax.swing.JButton();
+        checkAdministrador = new javax.swing.JCheckBox();
+        checkColaborador = new javax.swing.JCheckBox();
+        btnPesquisar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        estatisticas = new javax.swing.JPanel();
+        dashboard1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         botao.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(251, 251, 251));
-        setMaximumSize(new java.awt.Dimension(1900, 1023));
         setMinimumSize(new java.awt.Dimension(1032, 599));
-        setPreferredSize(new java.awt.Dimension(1032, 599));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRosa.setBackground(new java.awt.Color(255, 0, 66));
@@ -174,46 +198,22 @@ public class NewHome extends javax.swing.JFrame {
         getContentPane().add(panelCinza, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 170, 540));
 
         main.setLayout(new java.awt.CardLayout());
-        getContentPane().add(main, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 230));
+
+        usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainzinho.setBackground(new java.awt.Color(51, 51, 51));
+        mainzinho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        addUsuario.setBackground(new java.awt.Color(51, 51, 51));
+        addUsuario.setForeground(new java.awt.Color(251, 251, 251));
+        addUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/add_user_group_woman_man_24px.png"))); // NOI18N
+        addUsuario.setText("Novo Usuario");
+        addUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addUsuario.setContentAreaFilled(false);
+        addUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         nav.setBackground(new java.awt.Color(51, 51, 51));
-
-        checkColaborador.setBackground(new java.awt.Color(51, 51, 51));
-        checkColaborador.setForeground(new java.awt.Color(251, 251, 251));
-        checkColaborador.setSelected(true);
-        checkColaborador.setText("Colaboradores");
-        checkColaborador.setToolTipText("");
-        checkColaborador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        checkColaborador.setBorderPainted(true);
-        checkColaborador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkColaboradorActionPerformed(evt);
-            }
-        });
-
-        checkAdministrador.setBackground(new java.awt.Color(51, 51, 51));
-        checkAdministrador.setForeground(new java.awt.Color(251, 251, 251));
-        checkAdministrador.setText("Administradores");
-        checkAdministrador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        checkAdministrador.setBorderPainted(true);
-        checkAdministrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkAdministradorActionPerformed(evt);
-            }
-        });
-
-        btnPesquisar.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisar.setForeground(new java.awt.Color(251, 251, 251));
-        btnPesquisar.setText(" Pesquisar");
-        btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnPesquisar.setContentAreaFilled(false);
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
 
         jTable2.setBackground(new java.awt.Color(251, 251, 251));
         jTable2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -251,62 +251,59 @@ public class NewHome extends javax.swing.JFrame {
         nav.setLayout(navLayout);
         navLayout.setHorizontalGroup(
             navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
-                    .addGroup(navLayout.createSequentialGroup()
-                        .addComponent(checkAdministrador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         navLayout.setVerticalGroup(
             navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkAdministrador)
-                    .addComponent(checkColaborador)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addGap(31, 31, 31))
         );
 
-        addUsuario.setBackground(new java.awt.Color(51, 51, 51));
-        addUsuario.setForeground(new java.awt.Color(251, 251, 251));
-        addUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/add_user_group_woman_man_24px.png"))); // NOI18N
-        addUsuario.setText("Novo Usuario");
-        addUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addUsuario.setContentAreaFilled(false);
-        addUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mainzinho.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
-        javax.swing.GroupLayout mainzinhoLayout = new javax.swing.GroupLayout(mainzinho);
-        mainzinho.setLayout(mainzinhoLayout);
-        mainzinhoLayout.setHorizontalGroup(
-            mainzinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainzinhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(mainzinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainzinhoLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(addUsuario))
-                    .addComponent(nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        mainzinhoLayout.setVerticalGroup(
-            mainzinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainzinhoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addUsuario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        checkAdministrador.setBackground(new java.awt.Color(51, 51, 51));
+        checkAdministrador.setForeground(new java.awt.Color(251, 251, 251));
+        checkAdministrador.setText("Administradores");
+        checkAdministrador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        checkAdministrador.setBorderPainted(true);
+        checkAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAdministradorActionPerformed(evt);
+            }
+        });
+        mainzinho.add(checkAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        getContentPane().add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 720, -1));
+        checkColaborador.setBackground(new java.awt.Color(51, 51, 51));
+        checkColaborador.setForeground(new java.awt.Color(251, 251, 251));
+        checkColaborador.setSelected(true);
+        checkColaborador.setText("Colaboradores");
+        checkColaborador.setToolTipText("");
+        checkColaborador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        checkColaborador.setBorderPainted(true);
+        checkColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkColaboradorActionPerformed(evt);
+            }
+        });
+        mainzinho.add(checkColaborador, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 120, -1));
+
+        btnPesquisar.setBackground(new java.awt.Color(51, 51, 51));
+        btnPesquisar.setForeground(new java.awt.Color(251, 251, 251));
+        btnPesquisar.setText(" Pesquisar");
+        btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisar.setContentAreaFilled(false);
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        mainzinho.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 101, 19));
+
+        usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 720, 420));
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 66));
 
@@ -330,20 +327,59 @@ public class NewHome extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 720, 40));
+        usuarios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+
+        main.add(usuarios, "usuarios");
+
+        estatisticas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dashboard1.setLayout(new java.awt.BorderLayout());
+        estatisticas.add(dashboard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 97, 607, 345));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        estatisticas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 607, 345));
+
+        main.add(estatisticas, "estatisticas");
+
+        getContentPane().add(main, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 860, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonEstatisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEstatisticaActionPerformed
+        buttonHome.setOpaque(false);
+        buttonForms.setOpaque(false);
+        buttonEstatistica.setOpaque(true);
+        CardLayout cards = (CardLayout) main.getLayout();
+        cards.show(main, "estatisticas");
+    }//GEN-LAST:event_buttonEstatisticaActionPerformed
+
+    private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
+        buttonHome.setOpaque(true);
+        buttonForms.setOpaque(false);
+        buttonEstatistica.setOpaque(false);
+        CardLayout cards = (CardLayout) main.getLayout();
+        cards.show(main, "usuarios");    }//GEN-LAST:event_buttonHomeActionPerformed
+
+    private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonFormsActionPerformed
+
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         preecherTabela(this.user, 0, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnPesquisarActionPerformed
-
-    private void checkColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkColaboradorActionPerformed
-        if (!checkColaborador.isSelected() && !checkAdministrador.isSelected()) {
-            checkColaborador.setSelected(true);
-        }
-    }//GEN-LAST:event_checkColaboradorActionPerformed
 
     private void checkAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAdministradorActionPerformed
         if (!checkColaborador.isSelected() && !checkAdministrador.isSelected()) {
@@ -351,17 +387,11 @@ public class NewHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkAdministradorActionPerformed
 
-    private void buttonEstatisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEstatisticaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonEstatisticaActionPerformed
-
-    private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonHomeActionPerformed
-
-    private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonFormsActionPerformed
+    private void checkColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkColaboradorActionPerformed
+        if (!checkColaborador.isSelected() && !checkAdministrador.isSelected()) {
+            checkColaborador.setSelected(true);
+        }
+    }//GEN-LAST:event_checkColaboradorActionPerformed
 
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
         //limpa tabela
@@ -393,10 +423,14 @@ public class NewHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonHome;
     private javax.swing.JCheckBox checkAdministrador;
     private javax.swing.JCheckBox checkColaborador;
+    private javax.swing.JPanel dashboard1;
+    private javax.swing.JPanel estatisticas;
     private javax.swing.JLabel iconAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel logoSanity;
     private javax.swing.JPanel main;
@@ -406,5 +440,6 @@ public class NewHome extends javax.swing.JFrame {
     private javax.swing.JLabel nomeSanity;
     private javax.swing.JPanel panelCinza;
     private javax.swing.JPanel panelRosa;
+    private javax.swing.JPanel usuarios;
     // End of variables declaration//GEN-END:variables
 }

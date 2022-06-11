@@ -38,8 +38,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
         subItemRespotaCriar = new javax.swing.JMenuItem();
         subItemRespostaDesativar = new javax.swing.JMenuItem();
         subItemRespostaAlterar = new javax.swing.JMenuItem();
-        menuEstatistica = new javax.swing.JMenu();
-        itemEstatisticas = new javax.swing.JMenuItem();
         menuIndev = new javax.swing.JMenu();
         itemIndev = new javax.swing.JMenuItem();
 
@@ -209,21 +207,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
 
         homeMenuBar.add(menuFormularios);
 
-        menuEstatistica.setBorder(null);
-        menuEstatistica.setForeground(new java.awt.Color(255, 0, 66));
-        menuEstatistica.setText("ESTATÍSTICAS");
-        menuEstatistica.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
-
-        itemEstatisticas.setText("Estatísticas");
-        itemEstatisticas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemEstatisticasActionPerformed(evt);
-            }
-        });
-        menuEstatistica.add(itemEstatisticas);
-
-        homeMenuBar.add(menuEstatistica);
-
         menuIndev.setText("INDEV");
 
         itemIndev.setText("Usuários");
@@ -301,10 +284,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
         new AlterarResposta().setVisible(true);
     }//GEN-LAST:event_subItemRespostaAlterarActionPerformed
 
-    private void itemEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEstatisticasActionPerformed
-        new Estatisticas().setVisible(true);
-    }//GEN-LAST:event_itemEstatisticasActionPerformed
-
     private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
         new aep.indev.NewHome(user).setVisible(true);
     }//GEN-LAST:event_itemIndevActionPerformed
@@ -321,13 +300,11 @@ public class HomeFuncionario extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemAlterarUsuarios;
     private javax.swing.JMenuItem itemCadastrarUsuario;
     private javax.swing.JMenuItem itemDesativarUsuarios;
-    private javax.swing.JMenuItem itemEstatisticas;
     private javax.swing.JMenu itemFormulario;
     private javax.swing.JMenuItem itemIndev;
     private javax.swing.JMenu itemPergunta;
     private javax.swing.JMenu itemResposta;
     private javax.swing.JLabel lblUsuarioLogado;
-    private javax.swing.JMenu menuEstatistica;
     private javax.swing.JMenu menuFormularios;
     private javax.swing.JMenu menuIndev;
     private javax.swing.JMenu menuUsuarios;
