@@ -1,5 +1,5 @@
 
-package model;
+package br.com.sanity.model;
 
 
 public class PerguntaT {

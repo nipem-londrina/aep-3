@@ -1,8 +1,8 @@
-package aep;
+package br.com.sanity;
 
-public class DesativarFormulario extends javax.swing.JFrame {
+public class AlterarFormulario extends javax.swing.JFrame {
 
-    public DesativarFormulario() {
+    public AlterarFormulario() {
         initComponents();
     }
 
@@ -30,7 +30,7 @@ public class DesativarFormulario extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sanity - Desativar Formulário");
+        setTitle("Sanity - Alterar Formulário");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
@@ -41,16 +41,16 @@ public class DesativarFormulario extends javax.swing.JFrame {
         txtTituloFormulario.setBackground(new java.awt.Color(255, 255, 255));
         txtTituloFormulario.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         txtTituloFormulario.setForeground(new java.awt.Color(255, 255, 255));
-        txtTituloFormulario.setText("DESATIVAR FORMULÁRIO");
+        txtTituloFormulario.setText("ALTERAR FORMULÁRIO");
 
         javax.swing.GroupLayout painelVermelhoLayout = new javax.swing.GroupLayout(painelVermelho);
         painelVermelho.setLayout(painelVermelhoLayout);
         painelVermelhoLayout.setHorizontalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelVermelhoLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(160, 160, 160)
                 .addComponent(txtTituloFormulario)
-                .addContainerGap(623, Short.MAX_VALUE))
+                .addContainerGap(569, Short.MAX_VALUE))
         );
         painelVermelhoLayout.setVerticalGroup(
             painelVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,27 +65,26 @@ public class DesativarFormulario extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 0, 66));
         lblTitulo.setText("Título");
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         txtTitulo.setForeground(new java.awt.Color(255, 0, 66));
         txtTitulo.setBorder(null);
         txtTitulo.setCaretColor(new java.awt.Color(255, 0, 66));
         txtTitulo.setDisabledTextColor(new java.awt.Color(102, 102, 102));
-        txtTitulo.setEnabled(false);
-        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 310, -1));
+        jPanel1.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 310, -1));
 
         jSeparator5.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator5.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 10));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 310, 10));
 
         jSeparator6.setBackground(new java.awt.Color(255, 0, 66));
         jSeparator6.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 10));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 310, 10));
 
         lblDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(255, 0, 66));
         lblDescricao.setText("Descrição");
-        jPanel1.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jPanel1.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         btnCancelarFormulario.setBackground(new java.awt.Color(153, 153, 153));
         btnCancelarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -97,7 +96,7 @@ public class DesativarFormulario extends javax.swing.JFrame {
                 btnCancelarFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 150, 40));
+        jPanel1.add(btnCancelarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 150, 40));
 
         btnCadastrarFormulario.setBackground(new java.awt.Color(255, 0, 66));
         btnCadastrarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -109,45 +108,43 @@ public class DesativarFormulario extends javax.swing.JFrame {
                 btnCadastrarFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 70, 20));
+        jPanel1.add(btnCadastrarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 70, 20));
 
-        txaDescricao.setEditable(false);
         txaDescricao.setColumns(20);
         txaDescricao.setForeground(new java.awt.Color(255, 0, 66));
         txaDescricao.setRows(5);
         txaDescricao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
         txaDescricao.setDisabledTextColor(new java.awt.Color(102, 102, 102));
-        txaDescricao.setEnabled(false);
         jScrollPane1.setViewportView(txaDescricao);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 310, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 310, -1));
 
         txtBuscarID.setForeground(new java.awt.Color(255, 0, 66));
         txtBuscarID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 66)));
         txtBuscarID.setCaretColor(new java.awt.Color(255, 0, 66));
-        jPanel1.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 230, -1));
+        jPanel1.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 230, -1));
 
         lblIdFormulario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdFormulario.setForeground(new java.awt.Color(255, 0, 66));
         lblIdFormulario.setText("ID Formulário");
-        jPanel1.add(lblIdFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        jPanel1.add(lblIdFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 0, 66));
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 102)));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 60, 0));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 60, 0));
 
         btnDesativarFormulario.setBackground(new java.awt.Color(255, 0, 66));
         btnDesativarFormulario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnDesativarFormulario.setForeground(new java.awt.Color(255, 255, 255));
-        btnDesativarFormulario.setText("DESATIVAR");
+        btnDesativarFormulario.setText("ALTERAR");
         btnDesativarFormulario.setBorder(null);
-        jPanel1.add(btnDesativarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 150, 40));
+        jPanel1.add(btnDesativarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +165,7 @@ public class DesativarFormulario extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            new DesativarFormulario().setVisible(true);
+            new AlterarFormulario().setVisible(true);
         });
     }
 

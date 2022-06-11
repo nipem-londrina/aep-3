@@ -1,8 +1,8 @@
-package aep;
+package br.com.sanity;
 
-import connection.UsuarioDAO;
+import br.com.sanity.connection.UsuarioDAO;
 import javax.swing.JOptionPane;
-import model.Usuario;
+import br.com.sanity.model.Usuario;
 
 public class CadastroUsuario extends javax.swing.JFrame {
 

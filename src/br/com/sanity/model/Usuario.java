@@ -1,4 +1,4 @@
-package model;
+package br.com.sanity.model;
 
 public class Usuario {
 
@@ -19,7 +19,7 @@ public class Usuario {
     }
     
     public String getEmpresa() {
-        return connection.UsuarioDAO.getEmpresa(this.idEmpresa);
+        return br.com.sanity.connection.UsuarioDAO.getEmpresa(this.idEmpresa);
     }
 
     public int getId() {

@@ -1,4 +1,4 @@
-package aep;
+package br.com.sanity;
 
 public class DesativarUsuario extends javax.swing.JFrame {
 

@@ -1,4 +1,4 @@
-package aep;
+package br.com.sanity;
 
 public class CadastroEmpresa extends javax.swing.JFrame {
 

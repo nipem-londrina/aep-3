@@ -1,7 +1,7 @@
-package aep;
+package br.com.sanity;
 
-import connection.ConnectionFactory;
-import connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
+import br.com.sanity.connection.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Usuario;
+import br.com.sanity.model.Usuario;
 
 public class AlterarUsuario extends javax.swing.JFrame {
 

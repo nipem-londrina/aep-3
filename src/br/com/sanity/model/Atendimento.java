@@ -1,4 +1,4 @@
-package model;
+package br.com.sanity.model;
 
 import java.util.Date;
 

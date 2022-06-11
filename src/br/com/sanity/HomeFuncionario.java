@@ -1,6 +1,6 @@
-package aep;
+package br.com.sanity;
 
-import model.Usuario;
+import br.com.sanity.model.Usuario;
 
 public class HomeFuncionario extends javax.swing.JFrame {
     Usuario user;
@@ -285,7 +285,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_subItemRespostaAlterarActionPerformed
 
     private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
-        new aep.indev.NewHome(user).setVisible(true);
+        new br.com.sanity.indev.NewHome(user).setVisible(true);
     }//GEN-LAST:event_itemIndevActionPerformed
 
     public static void main(String args[]) {

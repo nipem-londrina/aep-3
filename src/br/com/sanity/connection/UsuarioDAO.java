@@ -1,4 +1,4 @@
-package connection;
+package br.com.sanity.connection;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
-import model.Usuario;
+import br.com.sanity.model.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.SecretKeyFactory;

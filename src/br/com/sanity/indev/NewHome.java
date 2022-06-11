@@ -1,9 +1,9 @@
-package aep.indev;
+package br.com.sanity.indev;
 
-import connection.UsuarioDAO;
+import br.com.sanity.connection.UsuarioDAO;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import model.Usuario;
+import br.com.sanity.model.Usuario;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -399,7 +399,7 @@ public class NewHome extends javax.swing.JFrame {
     }//GEN-LAST:event_checkColaboradorActionPerformed
 
     private void addUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUsuarioActionPerformed
-        new aep.CadastroUsuario(user).setVisible(true);
+        new br.com.sanity.CadastroUsuario(user).setVisible(true);
     }//GEN-LAST:event_addUsuarioActionPerformed
 
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
