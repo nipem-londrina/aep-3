@@ -16,7 +16,7 @@ public class NewHome extends javax.swing.JFrame {
 
     public NewHome(Usuario user) {
         this.user = user;
-        initComponents(); 
+        initComponents();
         mostrarTabelaUsuarios();
         mostrarGrafico();
         nomeAdmin.setText("Olá, " + this.user.getNome());
@@ -36,7 +36,7 @@ public class NewHome extends javax.swing.JFrame {
         javax.swing.JPanel panelshowPieChart = new ChartPanel(showPieChart);
         dashboard1.add(panelshowPieChart);
     }
-    
+
     private void mostrarTabelaUsuarios() {
         tableModel = (javax.swing.table.DefaultTableModel) jTable2.getModel();
 
@@ -48,7 +48,7 @@ public class NewHome extends javax.swing.JFrame {
         jTable2.getColumnModel().getColumn(2).setMaxWidth(84);
         jTable2.getColumnModel().getColumn(3).setMinWidth(75);
         jTable2.getColumnModel().getColumn(3).setMaxWidth(75);
-        
+
         //renderiza a coluna de Editar
         jTable2.getColumnModel().getColumn(3).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
             @Override
@@ -72,7 +72,7 @@ public class NewHome extends javax.swing.JFrame {
                 }
             }
         });
-        
+
         //preencher tabela ao entrar
         preecherTabela(user, 0, true, false);
     }
@@ -211,6 +211,11 @@ public class NewHome extends javax.swing.JFrame {
         addUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addUsuario.setContentAreaFilled(false);
         addUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUsuarioActionPerformed(evt);
+            }
+        });
         mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         nav.setBackground(new java.awt.Color(51, 51, 51));
@@ -392,6 +397,10 @@ public class NewHome extends javax.swing.JFrame {
             checkColaborador.setSelected(true);
         }
     }//GEN-LAST:event_checkColaboradorActionPerformed
+
+    private void addUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUsuarioActionPerformed
+        new aep.CadastroUsuario(user).setVisible(true);
+    }//GEN-LAST:event_addUsuarioActionPerformed
 
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
         //limpa tabela

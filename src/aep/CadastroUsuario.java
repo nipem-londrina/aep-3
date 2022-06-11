@@ -6,12 +6,12 @@ import model.Usuario;
 
 public class CadastroUsuario extends javax.swing.JFrame {
 
-    Usuario admin;
+    Usuario user;
     
-    public CadastroUsuario(Usuario admin) {
+    public CadastroUsuario(Usuario user) {
         initComponents();
-        this.admin = admin;
-        txtEmpresaCadastro.setText(this.admin.getEmpresa());
+        this.user = user;
+        txtEmpresaCadastro.setText(this.user.getEmpresa());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -200,22 +200,22 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 && !txtPasswordCadastro.getText().equals("")
                 && txtPasswordCadastro.getPassword().length >= 8
                 && validarCpf(txtMaskedCpfCadastro.getText())) {
-            Usuario user = new Usuario();
-            user.setNome(txtNomeCadastro.getText());
-            user.setEmail(txtEmailCadastro.getText());
-            user.setCpf(txtMaskedCpfCadastro.getText());
-            user.setIdEmpresa(admin.getIdEmpresa());
+            Usuario target = new Usuario();
+            target.setNome(txtNomeCadastro.getText());
+            target.setEmail(txtEmailCadastro.getText());
+            target.setCpf(txtMaskedCpfCadastro.getText());
+            target.setIdEmpresa(user.getIdEmpresa());
             switch (cbxPerfilCadastro.getSelectedIndex()) {
                 case 0:
-                    user.setPerfil('C');
+                    target.setPerfil('C');
                     break;
                 case 1: 
-                    user.setPerfil('A');
+                    target.setPerfil('A');
                     break;
                 default:
                     throw new AssertionError();
             }
-            UsuarioDAO.cadastrar(user, txtPasswordCadastro.getPassword());
+            UsuarioDAO.cadastrar(target, txtPasswordCadastro.getPassword());
             txtEmailCadastro.setText("");
             txtNomeCadastro.setText("");
             txtMaskedCpfCadastro.setText("");
