@@ -21,10 +21,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
         HomePainel = new javax.swing.JPanel();
         lblUsuarioLogado = new javax.swing.JLabel();
         homeMenuBar = new javax.swing.JMenuBar();
-        menuUsuarios = new javax.swing.JMenu();
-        itemCadastrarUsuario = new javax.swing.JMenuItem();
-        itemAlterarUsuarios = new javax.swing.JMenuItem();
-        itemDesativarUsuarios = new javax.swing.JMenuItem();
         menuFormularios = new javax.swing.JMenu();
         itemFormulario = new javax.swing.JMenu();
         subItemFormularioCriar = new javax.swing.JMenuItem();
@@ -68,41 +64,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
         homeMenuBar.setBackground(new java.awt.Color(0, 0, 255));
         homeMenuBar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         homeMenuBar.setForeground(new java.awt.Color(255, 255, 255));
-
-        menuUsuarios.setBackground(new java.awt.Color(255, 0, 66));
-        menuUsuarios.setBorder(null);
-        menuUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        menuUsuarios.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 12)); // NOI18N
-        menuUsuarios.setLabel("USUÁRIOS");
-
-        itemCadastrarUsuario.setForeground(new java.awt.Color(255, 0, 66));
-        itemCadastrarUsuario.setText("Cadastrar");
-        itemCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemCadastrarUsuarioActionPerformed(evt);
-            }
-        });
-        menuUsuarios.add(itemCadastrarUsuario);
-
-        itemAlterarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
-        itemAlterarUsuarios.setText("Alterar");
-        itemAlterarUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemAlterarUsuariosActionPerformed(evt);
-            }
-        });
-        menuUsuarios.add(itemAlterarUsuarios);
-
-        itemDesativarUsuarios.setForeground(new java.awt.Color(255, 0, 66));
-        itemDesativarUsuarios.setText("Desativar");
-        itemDesativarUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemDesativarUsuariosActionPerformed(evt);
-            }
-        });
-        menuUsuarios.add(itemDesativarUsuarios);
-
-        homeMenuBar.add(menuUsuarios);
 
         menuFormularios.setBorder(null);
         menuFormularios.setForeground(new java.awt.Color(255, 0, 66));
@@ -236,18 +197,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemAlterarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAlterarUsuariosActionPerformed
-        new AlterarUsuario(user).setVisible(true);
-    }//GEN-LAST:event_itemAlterarUsuariosActionPerformed
-
-    private void itemCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastrarUsuarioActionPerformed
-        new CadastroUsuario(user).setVisible(true);
-    }//GEN-LAST:event_itemCadastrarUsuarioActionPerformed
-
-    private void itemDesativarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDesativarUsuariosActionPerformed
-        new DesativarUsuario().setVisible(true);
-    }//GEN-LAST:event_itemDesativarUsuariosActionPerformed
-
     private void subItemFormularioCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemFormularioCriarActionPerformed
         new CadastroFormulario(user).setVisible(true);
     }//GEN-LAST:event_subItemFormularioCriarActionPerformed
@@ -297,9 +246,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HomePainel;
     private javax.swing.JMenuBar homeMenuBar;
-    private javax.swing.JMenuItem itemAlterarUsuarios;
-    private javax.swing.JMenuItem itemCadastrarUsuario;
-    private javax.swing.JMenuItem itemDesativarUsuarios;
     private javax.swing.JMenu itemFormulario;
     private javax.swing.JMenuItem itemIndev;
     private javax.swing.JMenu itemPergunta;
@@ -307,7 +253,6 @@ public class HomeFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuarioLogado;
     private javax.swing.JMenu menuFormularios;
     private javax.swing.JMenu menuIndev;
-    private javax.swing.JMenu menuUsuarios;
     private javax.swing.JMenuItem subItemFormularioAlterar;
     private javax.swing.JMenuItem subItemFormularioCriar;
     private javax.swing.JMenuItem subItemFormularioDesativar;
