@@ -1,10 +1,9 @@
-
 package br.com.sanity.model;
 
 
 public class Empresa {
     private int idEmpresa;
-    private String nome_Empresa;
+    private String nome;
     private String cnpj;
 
     public int getIdEmpresa() {
@@ -15,12 +14,12 @@ public class Empresa {
         this.idEmpresa = idEmpresa;
     }
 
-    public String getNome_Empresa() {
-        return nome_Empresa;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_Empresa(String nome_Empresa) {
-        this.nome_Empresa = nome_Empresa;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCnpj() {

@@ -2,7 +2,6 @@ package br.com.sanity.view;
 
 import static br.com.sanity.view.CadastroUsuario.validarCpf;
 import br.com.sanity.connection.ConnectionFactory;
-import br.com.sanity.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
