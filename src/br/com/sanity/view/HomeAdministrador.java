@@ -377,7 +377,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         cards.show(main, "usuarios");    }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
-        // TODO add your handling code here:
+        new CadastroFormulario(user).setVisible(true);
     }//GEN-LAST:event_buttonFormsActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
