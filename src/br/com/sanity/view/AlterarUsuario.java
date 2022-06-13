@@ -2,7 +2,7 @@ package br.com.sanity.view;
 
 import static br.com.sanity.view.CadastroUsuario.validarCpf;
 import br.com.sanity.connection.ConnectionFactory;
-import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
     public AlterarUsuario(Usuario user, int targetId) {
         initComponents();
         this.user = user;
-        UsuarioDAO.getUsuario(targetId);
+        ConnectionFactory.getUsuario(targetId);
         getColaborador(targetId);
         setCampos(target);
     }
@@ -192,7 +192,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
                     throw new AssertionError();
             }
             JOptionPane.showMessageDialog(null,
-                    UsuarioDAO.alterarUsuario(target.getId(),
+                    ConnectionFactory.alterarUsuario(target.getId(),
                             txtNome.getText(),
                             txtEmail.getText(),
                             txtMaskCPF.getText(),
@@ -226,7 +226,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
                 this.target.setAtivo(rs.getBoolean("ativo"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

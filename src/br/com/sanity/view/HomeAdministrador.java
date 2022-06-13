@@ -1,6 +1,6 @@
 package br.com.sanity.view;
 
-import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import br.com.sanity.model.Usuario;
@@ -408,7 +408,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         }
 
         //preenche a tabela
-        ArrayList<Usuario> busca = UsuarioDAO.getDezColaboradores(user, pagina, c, a);
+        ArrayList<Usuario> busca = ConnectionFactory.getDezColaboradores(user, pagina, c, a);
         for (int i = 0; i < busca.size(); i++) {
             tableModel.addRow(
                     new Object[]{

@@ -19,7 +19,7 @@ public class Usuario {
     }
     
     public String getEmpresa() {
-        return br.com.sanity.connection.UsuarioDAO.getEmpresa(this.idEmpresa);
+        return br.com.sanity.connection.ConnectionFactory.getEmpresa(this.idEmpresa);
     }
 
     public int getId() {

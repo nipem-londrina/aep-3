@@ -1,6 +1,6 @@
 package br.com.sanity.view;
 
-import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
 import javax.swing.JOptionPane;
 import br.com.sanity.model.Usuario;
 
@@ -215,7 +215,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 default:
                     throw new AssertionError();
             }
-            UsuarioDAO.cadastrar(target, txtPasswordCadastro.getPassword());
+            ConnectionFactory.cadastrar(target, txtPasswordCadastro.getPassword());
             txtEmailCadastro.setText("");
             txtNomeCadastro.setText("");
             txtMaskedCpfCadastro.setText("");

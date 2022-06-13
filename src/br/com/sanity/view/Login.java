@@ -1,7 +1,7 @@
 package br.com.sanity.view;
 
 import br.com.sanity.model.Usuario;
-import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
 
 public class Login extends javax.swing.JFrame {
 
@@ -126,7 +126,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         Usuario user = new Usuario();
-        if (UsuarioDAO.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
+        if (ConnectionFactory.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
             this.dispose();
             new HomeAdministrador(user).setVisible(true);
         } else {

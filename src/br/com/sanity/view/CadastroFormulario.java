@@ -1,6 +1,6 @@
 package br.com.sanity.view;
 
-import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.connection.ConnectionFactory;
 import br.com.sanity.model.Usuario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -225,7 +225,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
         this.titulo = txtTitulo.getText();
         this.descricao = txaDescricao.getText();
         JOptionPane.showMessageDialog(null,
-                UsuarioDAO.cadastrarFormulario(titulo, descricao, perguntas, user.getIdEmpresa())
+                ConnectionFactory.cadastrarFormulario(titulo, descricao, perguntas, user.getIdEmpresa())
                 ? "Cadastro bem sucedido!" : "Erro no cadastro..."
         );
         this.dispose();
