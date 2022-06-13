@@ -1,14 +1,21 @@
 package br.com.sanity;
 
+import br.com.sanity.connection.UsuarioDAO;
+import br.com.sanity.model.Usuario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class CadastroFormulario extends javax.swing.JFrame {
+
+    Usuario user;
     String titulo;
     String descricao;
-    ArrayList<String> perguntas;
+    ArrayList<String> perguntas = new ArrayList<>();
+    int perguntaspag = 0;
 
-    public CadastroFormulario() {
+    public CadastroFormulario(Usuario user) {
         initComponents();
+        this.user = user;
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,6 +39,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         btnSeguinte = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
+        lblPagina = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sanity - Cadastrar Formulário");
@@ -105,6 +113,11 @@ public class CadastroFormulario extends javax.swing.JFrame {
         btnCadastrarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarFormulario.setText("CADASTRAR");
         btnCadastrarFormulario.setBorder(null);
+        btnCadastrarFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarFormularioActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCadastrarFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 150, 40));
 
         txaDescricao.setColumns(20);
@@ -133,10 +146,23 @@ public class CadastroFormulario extends javax.swing.JFrame {
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 310, 10));
 
         btnSeguinte.setText(">");
+        btnSeguinte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeguinteActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSeguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
         btnAnterior.setText("<");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+
+        lblPagina.setText("1/1");
+        jPanel1.add(lblPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,11 +183,53 @@ public class CadastroFormulario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarFormularioActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new CadastroFormulario().setVisible(true);
-        });
-    }
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        if (perguntaspag != 0) {
+            if (perguntaspag >= perguntas.size()) {
+                if (!txaPergunta.getText().equals("")) {
+                    perguntas.add(txaPergunta.getText());
+                }
+            } else {
+                perguntas.set(perguntaspag, txaPergunta.getText());
+            }
+            perguntaspag--;
+            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size() + 1));
+            txaPergunta.setText(perguntas.get(perguntaspag));
+        }
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnSeguinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguinteActionPerformed
+        if (!txaPergunta.getText().equals("")) {
+            if (perguntaspag >= perguntas.size()) {
+                perguntas.add(txaPergunta.getText());
+            } else {
+                perguntas.set(perguntaspag, txaPergunta.getText());
+            }
+            btnAnterior.setEnabled(true);
+            perguntaspag++;
+            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size() + 1));
+            if (perguntaspag >= perguntas.size()) {
+                txaPergunta.setText("");
+            } else {
+                txaPergunta.setText(perguntas.get(perguntaspag));
+            }
+        }
+    }//GEN-LAST:event_btnSeguinteActionPerformed
+
+    private void btnCadastrarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFormularioActionPerformed
+        if (perguntaspag >= perguntas.size()) {
+            perguntas.add(txaPergunta.getText());
+        } else {
+            perguntas.set(perguntaspag, txaPergunta.getText());
+        }
+        this.titulo = txtTitulo.getText();
+        this.descricao = txaDescricao.getText();
+        JOptionPane.showMessageDialog(null,
+                UsuarioDAO.cadastrarFormulario(titulo, descricao, perguntas, user.getIdEmpresa())
+                ? "Cadastro bem sucedido!" : "Erro no cadastro..."
+        );
+        this.dispose();
+    }//GEN-LAST:event_btnCadastrarFormularioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
@@ -173,6 +241,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lblDescricao;
+    private javax.swing.JLabel lblPagina;
     private javax.swing.JLabel lblPerguntas;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel painelVermelho;

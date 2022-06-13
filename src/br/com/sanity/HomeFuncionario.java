@@ -249,7 +249,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_itemDesativarUsuariosActionPerformed
 
     private void subItemFormularioCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemFormularioCriarActionPerformed
-        new CadastroFormulario().setVisible(true);
+        new CadastroFormulario(user).setVisible(true);
     }//GEN-LAST:event_subItemFormularioCriarActionPerformed
 
     private void subItemFormularioDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subItemFormularioDesativarActionPerformed

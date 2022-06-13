@@ -194,4 +194,38 @@ public class UsuarioDAO {
 
         return ok;
     }
+
+    public static boolean cadastrarFormulario(String titulo, String descricao, ArrayList<String> perguntas, int empresa) {
+        boolean ok = false;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            con.setAutoCommit(false);
+            stmt = con.prepareStatement("insert into Formulario (titulo, descricao, idEmpresa) values (?, ?, ?)");
+            stmt.setString(1, titulo);
+            stmt.setString(2, descricao);
+            stmt.setInt(3, empresa);
+            stmt.executeUpdate();
+
+            stmt = con.prepareStatement("select LAST_INSERT_ID() as idFormulario");
+            rs = stmt.executeQuery();
+            rs.next();
+
+            for (int i = 0; i < perguntas.size(); i++) {
+                stmt = con.prepareStatement("insert into Pergunta (texto, idFormulario) values (?, ?)");
+                stmt.setString(1, perguntas.get(i));
+                stmt.setInt(2, rs.getInt("idFormulario"));
+                stmt.executeUpdate();
+            }
+            
+            con.commit();
+            ok = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return ok;
+    }
 }
