@@ -1,4 +1,4 @@
-package br.com.sanity;
+package br.com.sanity.view;
 
 import br.com.sanity.connection.UsuarioDAO;
 import br.com.sanity.model.Usuario;

@@ -1,6 +1,6 @@
-package br.com.sanity;
+package br.com.sanity.view;
 
-import static br.com.sanity.CadastroUsuario.validarCpf;
+import static br.com.sanity.view.CadastroUsuario.validarCpf;
 import br.com.sanity.connection.ConnectionFactory;
 import br.com.sanity.connection.UsuarioDAO;
 import java.sql.Connection;

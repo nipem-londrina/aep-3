@@ -1,4 +1,4 @@
-package br.com.sanity;
+package br.com.sanity.view;
 
 import br.com.sanity.model.Usuario;
 
@@ -110,7 +110,7 @@ public class OldHome extends javax.swing.JFrame {
     }//GEN-LAST:event_subItemFormularioCriarActionPerformed
 
     private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
-        new br.com.sanity.HomeAdministrador(user).setVisible(true);
+        new br.com.sanity.view.HomeAdministrador(user).setVisible(true);
     }//GEN-LAST:event_itemIndevActionPerformed
 
     public static void main(String args[]) {

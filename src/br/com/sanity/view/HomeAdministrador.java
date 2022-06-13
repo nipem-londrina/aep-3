@@ -1,4 +1,4 @@
-package br.com.sanity;
+package br.com.sanity.view;
 
 import br.com.sanity.connection.UsuarioDAO;
 import java.awt.CardLayout;
@@ -397,7 +397,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_checkColaboradorActionPerformed
 
     private void addUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUsuarioActionPerformed
-        new br.com.sanity.CadastroUsuario(user).setVisible(true);
+        new br.com.sanity.view.CadastroUsuario(user).setVisible(true);
     }//GEN-LAST:event_addUsuarioActionPerformed
 
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
