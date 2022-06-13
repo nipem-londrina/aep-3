@@ -84,7 +84,6 @@ public class NewHome extends javax.swing.JFrame {
         panelRosa = new javax.swing.JPanel();
         logoSanity = new javax.swing.JLabel();
         nomeSanity = new javax.swing.JLabel();
-        iconAdmin = new javax.swing.JLabel();
         nomeAdmin = new javax.swing.JLabel();
         panelCinza = new javax.swing.JPanel();
         buttonHome = new javax.swing.JButton();
@@ -132,13 +131,12 @@ public class NewHome extends javax.swing.JFrame {
         nomeSanity.setVerifyInputWhenFocusTarget(false);
         panelRosa.add(nomeSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
 
-        iconAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/male_user_50px.png"))); // NOI18N
-        panelRosa.add(iconAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
-
         nomeAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         nomeAdmin.setForeground(new java.awt.Color(251, 251, 251));
+        nomeAdmin.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        nomeAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/male_user_50px.png"))); // NOI18N
         nomeAdmin.setText("Olá, Admin");
-        panelRosa.add(nomeAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 100, 60));
+        panelRosa.add(nomeAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 60));
 
         getContentPane().add(panelRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
 
@@ -434,7 +432,6 @@ public class NewHome extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkColaborador;
     private javax.swing.JPanel dashboard1;
     private javax.swing.JPanel estatisticas;
-    private javax.swing.JLabel iconAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
