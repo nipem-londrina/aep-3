@@ -1,4 +1,4 @@
-package br.com.sanity.indev;
+package br.com.sanity;
 
 import br.com.sanity.connection.UsuarioDAO;
 import java.awt.CardLayout;
@@ -9,12 +9,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-public class NewHome extends javax.swing.JFrame {
+public class HomeAdministrador extends javax.swing.JFrame {
 
     Usuario user;
     javax.swing.table.DefaultTableModel tableModel;
 
-    public NewHome(Usuario user) {
+    public HomeAdministrador(Usuario user) {
         this.user = user;
         initComponents();
         mostrarTabelaUsuarios();
@@ -68,7 +68,7 @@ public class NewHome extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 javax.swing.JTable selected = (javax.swing.JTable) e.getSource();
                 if (selected.getSelectedColumn() == 3) {
-                    new NewAlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
+                    new AlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
                 }
             }
         });

@@ -128,7 +128,7 @@ public class Login extends javax.swing.JFrame {
         Usuario user = new Usuario();
         if (UsuarioDAO.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
             this.dispose();
-            new HomeFuncionario(user).setVisible(true);
+            new HomeAdministrador(user).setVisible(true);
         } else {
             lblSenhaCorreta.setText("Email ou senha incorretos.");
             txtEmailLogin.setText("");
@@ -152,7 +152,7 @@ public class Login extends javax.swing.JFrame {
         user.setCpf("123.456.789-09");
         user.setAtivo(true);
         this.dispose();
-        new HomeFuncionario(user).setVisible(true);
+        new HomeAdministrador(user).setVisible(true);
     }//GEN-LAST:event_btnDEBUGActionPerformed
 
     public static void main(String args[]) {

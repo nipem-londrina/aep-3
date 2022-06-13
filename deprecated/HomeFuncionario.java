@@ -234,7 +234,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_subItemRespostaAlterarActionPerformed
 
     private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
-        new br.com.sanity.indev.NewHome(user).setVisible(true);
+        new br.com.sanity.HomeAdministrador(user).setVisible(true);
     }//GEN-LAST:event_itemIndevActionPerformed
 
     public static void main(String args[]) {

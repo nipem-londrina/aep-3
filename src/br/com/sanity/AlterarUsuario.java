@@ -1,4 +1,4 @@
-package br.com.sanity.indev;
+package br.com.sanity;
 
 import static br.com.sanity.CadastroUsuario.validarCpf;
 import br.com.sanity.connection.ConnectionFactory;
@@ -12,12 +12,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import br.com.sanity.model.Usuario;
 
-public class NewAlterarUsuario extends javax.swing.JFrame {
+public class AlterarUsuario extends javax.swing.JFrame {
 
     Usuario user;
     Usuario target = new Usuario();
 
-    public NewAlterarUsuario(Usuario user, int targetId) {
+    public AlterarUsuario(Usuario user, int targetId) {
         initComponents();
         this.user = user;
         UsuarioDAO.getUsuario(targetId);
