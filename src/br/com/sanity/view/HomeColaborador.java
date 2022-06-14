@@ -1,13 +1,9 @@
 package br.com.sanity.view;
 
 import br.com.sanity.connection.ConnectionFactory;
-import java.awt.CardLayout;
+import br.com.sanity.model.Formulario;
 import java.util.ArrayList;
 import br.com.sanity.model.Usuario;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 
 public class HomeColaborador extends javax.swing.JFrame {
 
@@ -17,27 +13,23 @@ public class HomeColaborador extends javax.swing.JFrame {
     public HomeColaborador(Usuario user) {
         this.user = user;
         initComponents();
-        mostrarTabelaUsuarios();
-        
+        mostrarTabelaFormularios();
+
         nomeUsuario.setText("Olá, " + this.user.getNome());
     }
 
-
-
-    private void mostrarTabelaUsuarios() {
+    private void mostrarTabelaFormularios() {
         tableModel = (javax.swing.table.DefaultTableModel) jtListaFormulario.getModel();
 
         //redimensiona as colunas
         jtListaFormulario.setRowHeight(22);
         jtListaFormulario.getColumnModel().getColumn(0).setMinWidth(0);
         jtListaFormulario.getColumnModel().getColumn(0).setMaxWidth(0);
-        jtListaFormulario.getColumnModel().getColumn(2).setMinWidth(84);
-        jtListaFormulario.getColumnModel().getColumn(2).setMaxWidth(84);
-        jtListaFormulario.getColumnModel().getColumn(3).setMinWidth(75);
-        jtListaFormulario.getColumnModel().getColumn(3).setMaxWidth(75);
+        jtListaFormulario.getColumnModel().getColumn(2).setMinWidth(75);
+        jtListaFormulario.getColumnModel().getColumn(2).setMaxWidth(75);
 
         //renderiza a coluna de Editar
-        jtListaFormulario.getColumnModel().getColumn(3).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
+        jtListaFormulario.getColumnModel().getColumn(2).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
             @Override
             public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
                 javax.swing.JLabel l = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
@@ -54,14 +46,14 @@ public class HomeColaborador extends javax.swing.JFrame {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 javax.swing.JTable selected = (javax.swing.JTable) e.getSource();
-                if (selected.getSelectedColumn() == 3) {
+                if (selected.getSelectedColumn() == 2) {
                     new AlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
                 }
             }
         });
 
         //preencher tabela ao entrar
-        preecherTabela(user, 0, true, false);
+        preecherTabela(user, 0);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -89,6 +81,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(251, 251, 251));
         setMinimumSize(new java.awt.Dimension(1032, 599));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRosa.setBackground(new java.awt.Color(255, 0, 66));
@@ -283,7 +276,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
+    private void preecherTabela(Usuario user, int pagina) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -291,14 +284,13 @@ public class HomeColaborador extends javax.swing.JFrame {
         }
 
         //preenche a tabela
-        ArrayList<Usuario> busca = ConnectionFactory.getDezColaboradores(user, pagina, c, a);
+        ArrayList<Formulario> busca = ConnectionFactory.getDezFormularios(user, pagina);
         for (int i = 0; i < busca.size(); i++) {
             tableModel.addRow(
                     new Object[]{
                         busca.get(i).getId(),
-                        busca.get(i).getNome(),
-                        busca.get(i).getCpf(),
-                        "Editar"
+                        busca.get(i).getTitulo(),
+                        "Abrir"
                     }
             );
         }

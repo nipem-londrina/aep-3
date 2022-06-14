@@ -129,7 +129,11 @@ public class Login extends javax.swing.JFrame {
         user.setEmail(txtEmailLogin.getText());
         if (ConnectionFactory.login(user, txtPasswordLogin.getPassword())) {
             this.dispose();
-            new HomeAdministrador(user).setVisible(true);
+            if (user.getPerfil() == 'A') {
+                new HomeAdministrador(user).setVisible(true);
+            } else {
+                new HomeColaborador(user).setVisible(true);
+            }
         } else {
             lblSenhaCorreta.setText("Email ou senha incorretos.");
             txtEmailLogin.setText("");

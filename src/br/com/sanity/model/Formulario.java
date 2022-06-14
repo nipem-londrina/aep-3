@@ -8,6 +8,11 @@ public class Formulario {
     private int idEmpresa;
     private boolean ativo;
 
+    public Formulario(int id, String titulo) {
+        this.id = id;
+        this.titulo = titulo;
+    }
+    
     public int getId() {
         return id;
     }

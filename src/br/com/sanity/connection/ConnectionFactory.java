@@ -30,6 +30,7 @@ public class ConnectionFactory {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro na conexão");
             throw new RuntimeException("Erro na conexão: ", ex);
         }
     }
@@ -65,7 +66,7 @@ public class ConnectionFactory {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static boolean cadastrar(Usuario user, char[] senha) {
         boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
@@ -187,6 +188,35 @@ public class ConnectionFactory {
         return lista;
     }
 
+    public static ArrayList<Formulario> getDezFormularios(Usuario user, int pag) {
+        ArrayList<Formulario> lista = new ArrayList<>();
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select id, titulo from Formulario "
+                    + "where idEmpresa = ? "
+                    + "order by titulo limit ?, 10");
+            stmt.setInt(1, user.getIdEmpresa());
+            stmt.setInt(2, (pag * 10));
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                lista.add(new Formulario(
+                        rs.getInt("id"),
+                        rs.getString("titulo")
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return lista;
+    }
+
     public static Usuario getUsuario(int targetId) {
         Usuario target = new Usuario(targetId);
         Connection con = ConnectionFactory.getConnection();
@@ -266,7 +296,7 @@ public class ConnectionFactory {
                 stmt.setInt(2, rs.getInt("idFormulario"));
                 stmt.executeUpdate();
             }
-            
+
             con.commit();
             ok = true;
         } catch (SQLException ex) {
