@@ -1,26 +1,17 @@
 package br.com.sanity.view;
 
-import static br.com.sanity.view.CadastroUsuario.validarCpf;
 import br.com.sanity.connection.ConnectionFactory;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import br.com.sanity.model.Usuario;
 
 public class AlterarUsuario extends javax.swing.JFrame {
 
     Usuario user;
-    Usuario target = new Usuario();
+    Usuario target;
 
     public AlterarUsuario(Usuario user, int targetId) {
         initComponents();
         this.user = user;
-        ConnectionFactory.getUsuario(targetId);
-        getColaborador(targetId);
+        this.target = ConnectionFactory.getUsuario(targetId);
         setCampos(target);
     }
 
@@ -175,61 +166,21 @@ public class AlterarUsuario extends javax.swing.JFrame {
         if (true
                 && !txtNome.getText().equals("")
                 && !txtEmail.getText().equals("")
-                && validarCpf(txtMaskCPF.getText())) {
-            user.setNome(txtNome.getText());
-            user.setEmail(txtEmail.getText());
-            user.setCpf(txtMaskCPF.getText());
-            user.setIdEmpresa(target.getIdEmpresa());
-            switch (cbxPerfil.getSelectedIndex()) {
-                case 0:
-                    user.setPerfil('C');
-                    break;
-                case 1:
-                    user.setPerfil('A');
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-            JOptionPane.showMessageDialog(null,
-                    ConnectionFactory.alterarUsuario(target.getId(),
-                            txtNome.getText(),
-                            txtEmail.getText(),
-                            txtMaskCPF.getText(),
-                            checkAtivo.isSelected(),
-                            cbxPerfil.getSelectedIndex() == 1 ? 'A' : 'C'
-                    ) ? "Alteração bem sucedida!" : "Erro na alteração..."
+                && Usuario.validarCpf(txtMaskCPF.getText())) {
+            target.setNome(txtNome.getText());
+            target.setEmail(txtEmail.getText());
+            target.setCpf(txtMaskCPF.getText());
+            target.setIdEmpresa(user.getIdEmpresa());
+            target.setAtivo(checkAtivo.isSelected());
+            target.setPerfil(cbxPerfil.getSelectedIndex() == 1 ? 'A' : 'C');
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    ConnectionFactory.alterarUsuario(target) ? "Alteração bem sucedida!" : "Erro na alteração..."
             );
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Login Inválido");
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro nas Informações!");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void getColaborador(int targetId) {
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            stmt = con.prepareStatement("select id, perfil, nome, email, cpf, ativo "
-                    + "from Usuario "
-                    + "where id = ?");
-            stmt.setInt(1, targetId);
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                this.target.setId(rs.getInt("id"));
-                this.target.setPerfil(rs.getString("perfil").charAt(0));
-                this.target.setNome(rs.getString("nome"));
-                this.target.setEmail(rs.getString("email"));
-                this.target.setCpf(rs.getString("cpf"));
-                this.target.setAtivo(rs.getBoolean("ativo"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
-        }
-    }
 
     private void setCampos(Usuario target) {
         txtNome.setText(target.getNome());

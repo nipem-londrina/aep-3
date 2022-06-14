@@ -4,10 +4,6 @@ import br.com.sanity.model.Usuario;
 
 public class OldHome extends javax.swing.JFrame {
     Usuario user;
-
-    public OldHome() {
-        initComponents();
-    }
     
     public OldHome(Usuario user) {
         initComponents();
@@ -112,12 +108,6 @@ public class OldHome extends javax.swing.JFrame {
     private void itemIndevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIndevActionPerformed
         new br.com.sanity.view.HomeAdministrador(user).setVisible(true);
     }//GEN-LAST:event_itemIndevActionPerformed
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new OldHome().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HomePainel;

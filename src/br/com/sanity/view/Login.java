@@ -126,7 +126,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         Usuario user = new Usuario();
-        if (ConnectionFactory.login(user, txtEmailLogin.getText(), txtPasswordLogin.getPassword())) {
+        user.setEmail(txtEmailLogin.getText());
+        if (ConnectionFactory.login(user, txtPasswordLogin.getPassword())) {
             this.dispose();
             new HomeAdministrador(user).setVisible(true);
         } else {

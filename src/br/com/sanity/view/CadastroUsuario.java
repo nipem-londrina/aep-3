@@ -1,16 +1,17 @@
 package br.com.sanity.view;
 
 import br.com.sanity.connection.ConnectionFactory;
-import javax.swing.JOptionPane;
 import br.com.sanity.model.Usuario;
 
 public class CadastroUsuario extends javax.swing.JFrame {
 
     Usuario user;
-    
+    Usuario target;
+
     public CadastroUsuario(Usuario user) {
         initComponents();
         this.user = user;
+        this.target = new Usuario();
         txtEmpresaCadastro.setText(this.user.getEmpresa());
     }
 
@@ -199,55 +200,23 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 && !txtEmailCadastro.getText().equals("")
                 && !txtPasswordCadastro.getText().equals("")
                 && txtPasswordCadastro.getPassword().length >= 8
-                && validarCpf(txtMaskedCpfCadastro.getText())) {
-            Usuario target = new Usuario();
+                && Usuario.validarCpf(txtMaskedCpfCadastro.getText())) {
             target.setNome(txtNomeCadastro.getText());
             target.setEmail(txtEmailCadastro.getText());
             target.setCpf(txtMaskedCpfCadastro.getText());
             target.setIdEmpresa(user.getIdEmpresa());
-            switch (cbxPerfilCadastro.getSelectedIndex()) {
-                case 0:
-                    target.setPerfil('C');
-                    break;
-                case 1: 
-                    target.setPerfil('A');
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-            ConnectionFactory.cadastrar(target, txtPasswordCadastro.getPassword());
+            target.setPerfil(cbxPerfilCadastro.getSelectedIndex() == 1 ? 'A' : 'C');
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    ConnectionFactory.cadastrar(target, txtPasswordCadastro.getPassword()) ? "Cadastro bem sucedido!" : "Erro no cadastro..."
+            );
             txtEmailCadastro.setText("");
             txtNomeCadastro.setText("");
             txtMaskedCpfCadastro.setText("");
             txtPasswordCadastro.setText("");
         } else {
-            JOptionPane.showMessageDialog(null, "Cadastro Inválido");
+            javax.swing.JOptionPane.showMessageDialog(null, "Cadastro Inválido");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    public static boolean validarCpf(String cpf) {
-
-        int o = 0;
-        int sum1 = 0;
-        int sum2 = 0;
-        boolean rep = true;
-
-        for (int i = 0; i < 13; i++) {
-            if (i % 4 != 3) {
-                //multiplica e soma os digitos. sum1 não recebe o digito 12
-                sum1 += (i != 12) ? ((cpf.charAt(i) - '0') * (10 - i + o)) : 0;
-                sum2 += (cpf.charAt(i) - '0') * (11 - i + o);
-                //verifica se todos iguais
-                rep = rep ? cpf.charAt(0) == cpf.charAt(i) : false;
-            } else {
-                //pula pontos e traços
-                o++;
-            }
-        }
-
-        //retorna se não é repetido e se as somas batem
-        return !rep && sum1 * 10 % 11 % 10 == cpf.charAt(12) - '0' && sum2 * 10 % 11 % 10 == cpf.charAt(13) - '0';
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;

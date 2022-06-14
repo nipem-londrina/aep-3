@@ -1,5 +1,6 @@
 package br.com.sanity.connection;
 
+import br.com.sanity.model.Formulario;
 import br.com.sanity.model.Usuario;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -65,7 +66,8 @@ public class ConnectionFactory {
         }
     }
     
-    public static void cadastrar(Usuario user, char[] senha) {
+    public static boolean cadastrar(Usuario user, char[] senha) {
+        boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
@@ -83,21 +85,23 @@ public class ConnectionFactory {
             stmt.setString(6, user.getEmail());
             stmt.setString(7, user.getCpf());
             stmt.executeUpdate();
+            ok = true;
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
+        return ok;
     }
 
-    public static boolean login(Usuario user, String email, char[] senha) {
+    public static boolean login(Usuario user, char[] senha) {
         boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = con.prepareStatement("select id, senhaHash, senhaSal from Usuario where email = ?");
-            stmt.setString(1, email);
+            stmt.setString(1, user.getEmail());
             rs = stmt.executeQuery();
             if (rs.next() && Arrays.equals(pbkdf2(senha, rs.getBytes("senhaSal")), rs.getBytes("senhaHash"))) {
                 stmt = con.prepareStatement("select * from Usuario where id = ?");
@@ -184,18 +188,18 @@ public class ConnectionFactory {
     }
 
     public static Usuario getUsuario(int targetId) {
-        Usuario target = new Usuario();
+        Usuario target = new Usuario(targetId);
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("select * from Usuario where id = ?");
-            stmt.setInt(1, targetId);
+            stmt = con.prepareStatement("select perfil, nome, email, cpf, ativo "
+                    + "from Usuario "
+                    + "where id = ?");
+            stmt.setInt(1, target.getId());
             rs = stmt.executeQuery();
             if (rs.next()) {
-                target.setId(rs.getInt("id"));
                 target.setPerfil(rs.getString("perfil").charAt(0));
-                target.setIdEmpresa(rs.getInt("idEmpresa"));
                 target.setNome(rs.getString("nome"));
                 target.setEmail(rs.getString("email"));
                 target.setCpf(rs.getString("cpf"));
@@ -209,7 +213,7 @@ public class ConnectionFactory {
         return target;
     }
 
-    public static boolean alterarUsuario(int id, String nome, String email, String cpf, boolean ativo, char perfil) {
+    public static boolean alterarUsuario(Usuario target) {
         boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -222,12 +226,12 @@ public class ConnectionFactory {
                     + "cpf = ? , "
                     + "ativo = ? "
                     + "where (id = ?)");
-            stmt.setString(1, perfil + "");
-            stmt.setString(2, nome);
-            stmt.setString(3, email);
-            stmt.setString(4, cpf);
-            stmt.setBoolean(5, ativo);
-            stmt.setInt(6, id);
+            stmt.setString(1, target.getPerfil() + "");
+            stmt.setString(2, target.getNome());
+            stmt.setString(3, target.getEmail());
+            stmt.setString(4, target.getCpf());
+            stmt.setBoolean(5, target.isAtivo());
+            stmt.setInt(6, target.getId());
             stmt.executeUpdate();
             ok = true;
         } catch (SQLException ex) {
@@ -239,7 +243,7 @@ public class ConnectionFactory {
         return ok;
     }
 
-    public static boolean cadastrarFormulario(String titulo, String descricao, ArrayList<String> perguntas, int empresa) {
+    public static boolean cadastrarFormulario(Formulario form, ArrayList<String> perguntas) {
         boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -247,9 +251,9 @@ public class ConnectionFactory {
         try {
             con.setAutoCommit(false);
             stmt = con.prepareStatement("insert into Formulario (titulo, descricao, idEmpresa) values (?, ?, ?)");
-            stmt.setString(1, titulo);
-            stmt.setString(2, descricao);
-            stmt.setInt(3, empresa);
+            stmt.setString(1, form.getTitulo());
+            stmt.setString(2, form.getDescricao());
+            stmt.setInt(3, form.getIdEmpresa());
             stmt.executeUpdate();
 
             stmt = con.prepareStatement("select LAST_INSERT_ID() as idFormulario");

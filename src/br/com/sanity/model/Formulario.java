@@ -1,10 +1,11 @@
 package br.com.sanity.model;
 
 public class Formulario {
+
     private int id;
     private String titulo;
     private String descricao;
-    private int idUsuario;
+    private int idEmpresa;
     private boolean ativo;
 
     public int getId() {
@@ -31,12 +32,12 @@ public class Formulario {
         this.descricao = descricao;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdEmpresa() {
+        return idEmpresa;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public boolean isAtivo() {

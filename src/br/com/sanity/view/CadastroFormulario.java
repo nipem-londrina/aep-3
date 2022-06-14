@@ -1,15 +1,14 @@
 package br.com.sanity.view;
 
 import br.com.sanity.connection.ConnectionFactory;
+import br.com.sanity.model.Formulario;
 import br.com.sanity.model.Usuario;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class CadastroFormulario extends javax.swing.JFrame {
 
     Usuario user;
-    String titulo;
-    String descricao;
+    Formulario form;
     ArrayList<String> perguntas = new ArrayList<>();
     int perguntaspag = 0;
 
@@ -228,10 +227,11 @@ public class CadastroFormulario extends javax.swing.JFrame {
         } else {
             perguntas.set(perguntaspag, txaPergunta.getText());
         }
-        this.titulo = txtTitulo.getText();
-        this.descricao = txaDescricao.getText();
-        JOptionPane.showMessageDialog(null,
-                ConnectionFactory.cadastrarFormulario(titulo, descricao, perguntas, user.getIdEmpresa())
+        this.form.setTitulo(txtTitulo.getText());
+        this.form.setDescricao(txaDescricao.getText());
+        this.form.setIdEmpresa(this.user.getIdEmpresa());
+        javax.swing.JOptionPane.showMessageDialog(null,
+                ConnectionFactory.cadastrarFormulario(form, perguntas)
                 ? "Cadastro bem sucedido!" : "Erro no cadastro..."
         );
         this.dispose();
