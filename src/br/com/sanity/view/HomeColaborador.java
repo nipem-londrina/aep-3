@@ -1,0 +1,325 @@
+package br.com.sanity.view;
+
+import br.com.sanity.connection.ConnectionFactory;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import br.com.sanity.model.Usuario;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
+public class HomeColaborador extends javax.swing.JFrame {
+
+    Usuario user;
+    javax.swing.table.DefaultTableModel tableModel;
+
+    public HomeColaborador(Usuario user) {
+        this.user = user;
+        initComponents();
+        mostrarTabelaUsuarios();
+        
+        nomeUsuario.setText("Olá, " + this.user.getNome());
+    }
+
+
+
+    private void mostrarTabelaUsuarios() {
+        tableModel = (javax.swing.table.DefaultTableModel) jtListaFormulario.getModel();
+
+        //redimensiona as colunas
+        jtListaFormulario.setRowHeight(22);
+        jtListaFormulario.getColumnModel().getColumn(0).setMinWidth(0);
+        jtListaFormulario.getColumnModel().getColumn(0).setMaxWidth(0);
+        jtListaFormulario.getColumnModel().getColumn(2).setMinWidth(84);
+        jtListaFormulario.getColumnModel().getColumn(2).setMaxWidth(84);
+        jtListaFormulario.getColumnModel().getColumn(3).setMinWidth(75);
+        jtListaFormulario.getColumnModel().getColumn(3).setMaxWidth(75);
+
+        //renderiza a coluna de Editar
+        jtListaFormulario.getColumnModel().getColumn(3).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
+            @Override
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+                javax.swing.JLabel l = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+                l.setBackground(new java.awt.Color(255, 0, 66));
+                l.setFont(new java.awt.Font("Century Gothic", 0, 12));
+                l.setForeground(new java.awt.Color(255, 255, 255));
+                l.setBorder(null);
+                return l;
+            }
+        });
+
+        //reagir a clique
+        jtListaFormulario.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                javax.swing.JTable selected = (javax.swing.JTable) e.getSource();
+                if (selected.getSelectedColumn() == 3) {
+                    new AlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
+                }
+            }
+        });
+
+        //preencher tabela ao entrar
+        preecherTabela(user, 0, true, false);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        botao = new javax.swing.JButton();
+        panelRosa = new javax.swing.JPanel();
+        logoSanity = new javax.swing.JLabel();
+        nomeSanity = new javax.swing.JLabel();
+        nomeUsuario = new javax.swing.JLabel();
+        painelUsuarios = new javax.swing.JPanel();
+        mainzinho2 = new javax.swing.JPanel();
+        nav2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtListaFormulario = new javax.swing.JTable();
+        btnAvancar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
+        txtPesquisar = new javax.swing.JTextField();
+        jpTitulo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+
+        botao.setText("jButton3");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(251, 251, 251));
+        setMinimumSize(new java.awt.Dimension(1032, 599));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRosa.setBackground(new java.awt.Color(255, 0, 66));
+        panelRosa.setMaximumSize(new java.awt.Dimension(1900, 1023));
+        panelRosa.setPreferredSize(new java.awt.Dimension(1032, 40));
+        panelRosa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logoSanity.png"))); // NOI18N
+        logoSanity.setToolTipText("");
+        logoSanity.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelRosa.add(logoSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
+
+        nomeSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/iconSanity.png"))); // NOI18N
+        nomeSanity.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        nomeSanity.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        nomeSanity.setVerifyInputWhenFocusTarget(false);
+        panelRosa.add(nomeSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 30));
+
+        nomeUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nomeUsuario.setForeground(new java.awt.Color(251, 251, 251));
+        nomeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        nomeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/male_user_50px.png"))); // NOI18N
+        nomeUsuario.setText("Olá, Usuário");
+        panelRosa.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 60));
+
+        getContentPane().add(panelRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
+
+        painelUsuarios.setBackground(new java.awt.Color(102, 102, 102));
+        painelUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainzinho2.setBackground(new java.awt.Color(51, 51, 51));
+        mainzinho2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nav2.setBackground(new java.awt.Color(51, 51, 51));
+
+        jtListaFormulario.setBackground(new java.awt.Color(251, 251, 251));
+        jtListaFormulario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jtListaFormulario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Título", ""
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtListaFormulario.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
+        jtListaFormulario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtListaFormulario.setRowSelectionAllowed(false);
+        jtListaFormulario.getTableHeader().setResizingAllowed(false);
+        jtListaFormulario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jtListaFormulario);
+
+        btnAvancar.setBackground(new java.awt.Color(51, 51, 51));
+        btnAvancar.setForeground(new java.awt.Color(251, 251, 251));
+        btnAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha.png"))); // NOI18N
+        btnAvancar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAvancar.setContentAreaFilled(false);
+        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvancarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 51));
+        btnVoltar.setForeground(new java.awt.Color(251, 251, 251));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha_esquerda.png"))); // NOI18N
+        btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVoltar.setContentAreaFilled(false);
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout nav2Layout = new javax.swing.GroupLayout(nav2);
+        nav2.setLayout(nav2Layout);
+        nav2Layout.setHorizontalGroup(
+            nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nav2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(nav2Layout.createSequentialGroup()
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(591, 591, 591)
+                        .addComponent(btnAvancar))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        nav2Layout.setVerticalGroup(
+            nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nav2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAvancar)
+                    .addComponent(btnVoltar))
+                .addContainerGap())
+        );
+
+        mainzinho2.add(nav2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        btnPesquisar.setBackground(new java.awt.Color(51, 51, 51));
+        btnPesquisar.setForeground(new java.awt.Color(251, 251, 251));
+        btnPesquisar.setText(" Pesquisar");
+        btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPesquisar.setContentAreaFilled(false);
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        mainzinho2.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 101, 19));
+
+        txtPesquisar.setBackground(new java.awt.Color(102, 102, 102));
+        txtPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        txtPesquisar.setToolTipText("");
+        txtPesquisar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPesquisar.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisarActionPerformed(evt);
+            }
+        });
+        mainzinho2.add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 210, -1));
+
+        painelUsuarios.add(mainzinho2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 720, 420));
+
+        jpTitulo.setBackground(new java.awt.Color(255, 0, 66));
+
+        lblTitulo.setBackground(new java.awt.Color(255, 0, 102));
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(251, 251, 251));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/search_26px.png"))); // NOI18N
+        lblTitulo.setText("FORMULÁRIOS");
+        lblTitulo.setToolTipText("");
+
+        javax.swing.GroupLayout jpTituloLayout = new javax.swing.GroupLayout(jpTitulo);
+        jpTitulo.setLayout(jpTituloLayout);
+        jpTituloLayout.setHorizontalGroup(
+            jpTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpTituloLayout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
+        );
+        jpTituloLayout.setVerticalGroup(
+            jpTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        painelUsuarios.add(jpTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+
+        getContentPane().add(painelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1030, 540));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        //preecherTabela(this.user, 0, checkColaborador.isSelected(), checkAdministrador.isSelected());
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisarActionPerformed
+
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAvancarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
+        //limpa tabela
+        int rowCount = tableModel.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            tableModel.removeRow(0);
+        }
+
+        //preenche a tabela
+        ArrayList<Usuario> busca = ConnectionFactory.getDezColaboradores(user, pagina, c, a);
+        for (int i = 0; i < busca.size(); i++) {
+            tableModel.addRow(
+                    new Object[]{
+                        busca.get(i).getId(),
+                        busca.get(i).getNome(),
+                        busca.get(i).getCpf(),
+                        "Editar"
+                    }
+            );
+        }
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botao;
+    private javax.swing.JButton btnAvancar;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jpTitulo;
+    private javax.swing.JTable jtListaFormulario;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel logoSanity;
+    private javax.swing.JPanel mainzinho2;
+    private javax.swing.JPanel nav2;
+    private javax.swing.JLabel nomeSanity;
+    private javax.swing.JLabel nomeUsuario;
+    private javax.swing.JPanel painelUsuarios;
+    private javax.swing.JPanel panelRosa;
+    private javax.swing.JTextField txtPesquisar;
+    // End of variables declaration//GEN-END:variables
+}

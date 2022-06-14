@@ -96,6 +96,8 @@ public class HomeAdministrador extends javax.swing.JFrame {
         nav = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        btnVoltar = new javax.swing.JButton();
+        btnAvancar = new javax.swing.JButton();
         checkAdministrador = new javax.swing.JCheckBox();
         checkColaborador = new javax.swing.JCheckBox();
         btnPesquisar = new javax.swing.JButton();
@@ -119,13 +121,13 @@ public class HomeAdministrador extends javax.swing.JFrame {
         panelRosa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logoSanity.png"))); // NOI18N
+        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/logoSanity.png"))); // NOI18N
         logoSanity.setToolTipText("");
         logoSanity.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelRosa.add(logoSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
 
         nomeSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/iconSanity.png"))); // NOI18N
+        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/iconSanity.png"))); // NOI18N
         nomeSanity.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         nomeSanity.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         nomeSanity.setVerifyInputWhenFocusTarget(false);
@@ -146,7 +148,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonHome.setBackground(new java.awt.Color(0, 0, 0));
         buttonHome.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         buttonHome.setForeground(new java.awt.Color(251, 251, 251));
-        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/home_24px.png"))); // NOI18N
+        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/home_24px.png"))); // NOI18N
         buttonHome.setText("   Pagina Inicial");
         buttonHome.setBorderPainted(false);
         buttonHome.setContentAreaFilled(false);
@@ -162,7 +164,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonForms.setBackground(new java.awt.Color(0, 0, 0));
         buttonForms.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         buttonForms.setForeground(new java.awt.Color(251, 251, 251));
-        buttonForms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/edit_property_24px.png"))); // NOI18N
+        buttonForms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/edit_property_24px.png"))); // NOI18N
         buttonForms.setText("   Formulários");
         buttonForms.setToolTipText("");
         buttonForms.setBorderPainted(false);
@@ -179,7 +181,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonEstatistica.setBackground(new java.awt.Color(0, 0, 0));
         buttonEstatistica.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         buttonEstatistica.setForeground(new java.awt.Color(251, 251, 251));
-        buttonEstatistica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/account_24px.png"))); // NOI18N
+        buttonEstatistica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/account_24px.png"))); // NOI18N
         buttonEstatistica.setText("   Estatísticas");
         buttonEstatistica.setToolTipText("");
         buttonEstatistica.setBorderPainted(false);
@@ -204,7 +206,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
         addUsuario.setBackground(new java.awt.Color(51, 51, 51));
         addUsuario.setForeground(new java.awt.Color(251, 251, 251));
-        addUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/add_user_group_woman_man_24px.png"))); // NOI18N
+        addUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/add_user_group_woman_man_24px.png"))); // NOI18N
         addUsuario.setText("Novo Usuario");
         addUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addUsuario.setContentAreaFilled(false);
@@ -214,7 +216,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
                 addUsuarioActionPerformed(evt);
             }
         });
-        mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 20, -1, -1));
 
         nav.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -250,12 +252,41 @@ public class HomeAdministrador extends javax.swing.JFrame {
         jTable2.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable2);
 
+        btnVoltar.setBackground(new java.awt.Color(51, 51, 51));
+        btnVoltar.setForeground(new java.awt.Color(251, 251, 251));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha_esquerda.png"))); // NOI18N
+        btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVoltar.setContentAreaFilled(false);
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnAvancar.setBackground(new java.awt.Color(51, 51, 51));
+        btnAvancar.setForeground(new java.awt.Color(251, 251, 251));
+        btnAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha.png"))); // NOI18N
+        btnAvancar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAvancar.setContentAreaFilled(false);
+        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvancarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout navLayout = new javax.swing.GroupLayout(nav);
         nav.setLayout(navLayout);
         navLayout.setHorizontalGroup(
             navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(navLayout.createSequentialGroup()
+                .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(navLayout.createSequentialGroup()
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAvancar)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         navLayout.setVerticalGroup(
@@ -263,7 +294,11 @@ public class HomeAdministrador extends javax.swing.JFrame {
             .addGroup(navLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addGap(18, 18, 18)
+                .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAvancar)
+                    .addComponent(btnVoltar))
+                .addContainerGap())
         );
 
         mainzinho.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
@@ -306,14 +341,14 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
         mainzinho.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 101, 19));
 
-        usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 720, 420));
+        usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 700, 430));
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 66));
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 102));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(251, 251, 251));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/search_26px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/search_26px.png"))); // NOI18N
         jLabel1.setText("Consultar Usuarios Cadastrados");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -323,14 +358,14 @@ public class HomeAdministrador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        usuarios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+        usuarios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 700, -1));
 
         main.add(usuarios, "usuarios");
 
@@ -400,6 +435,14 @@ public class HomeAdministrador extends javax.swing.JFrame {
         new br.com.sanity.view.CadastroUsuario(user).setVisible(true);
     }//GEN-LAST:event_addUsuarioActionPerformed
 
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAvancarActionPerformed
+
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
@@ -424,7 +467,9 @@ public class HomeAdministrador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUsuario;
     private javax.swing.JButton botao;
+    private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JButton buttonEstatistica;
     private javax.swing.JButton buttonForms;
     private javax.swing.JButton buttonHome;

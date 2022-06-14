@@ -36,9 +36,9 @@ public class CadastroFormulario extends javax.swing.JFrame {
         lblPerguntas = new javax.swing.JLabel();
         scrollPergunta = new javax.swing.JScrollPane();
         txaPergunta = new javax.swing.JTextArea();
-        jSeparator7 = new javax.swing.JSeparator();
         btnSeguinte = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JSeparator();
         lblPagina = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -141,25 +141,31 @@ public class CadastroFormulario extends javax.swing.JFrame {
 
         jPanel1.add(scrollPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 310, -1));
 
-        jSeparator7.setBackground(new java.awt.Color(255, 0, 66));
-        jSeparator7.setForeground(new java.awt.Color(255, 0, 66));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 310, 10));
-
-        btnSeguinte.setText(">");
+        btnSeguinte.setBackground(new java.awt.Color(255, 255, 255));
+        btnSeguinte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/felchaVermelha.png"))); // NOI18N
+        btnSeguinte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSeguinte.setContentAreaFilled(false);
         btnSeguinte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeguinteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+        jPanel1.add(btnSeguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 333, 30, -1));
 
-        btnAnterior.setText("<");
+        btnAnterior.setBackground(new java.awt.Color(255, 255, 255));
+        btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/felchaVermelhaesquerda.png"))); // NOI18N
+        btnAnterior.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAnterior.setContentAreaFilled(false);
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnteriorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        jPanel1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 333, 30, -1));
+
+        jSeparator7.setBackground(new java.awt.Color(255, 0, 66));
+        jSeparator7.setForeground(new java.awt.Color(255, 0, 66));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 310, 10));
 
         lblPagina.setText("1/1");
         jPanel1.add(lblPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
