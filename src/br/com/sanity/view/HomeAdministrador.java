@@ -12,6 +12,7 @@ import org.jfree.data.general.DefaultPieDataset;
 public class HomeAdministrador extends javax.swing.JFrame {
 
     Usuario user;
+    int usuariospag = 0;
     javax.swing.table.DefaultTableModel tableModel;
 
     public HomeAdministrador(Usuario user) {
@@ -40,8 +41,15 @@ public class HomeAdministrador extends javax.swing.JFrame {
     private void mostrarTabelaUsuarios() {
         tableModel = (javax.swing.table.DefaultTableModel) jTable2.getModel();
 
+        //formata os caraio dos cabeçalho da tabela
+        final javax.swing.table.DefaultTableCellRenderer renderer = new javax.swing.table.DefaultTableCellRenderer();
+        renderer.setBorder(null);
+        renderer.setBackground(java.awt.Color.decode("#333333"));
+        renderer.setForeground(java.awt.Color.white);
+        jTable2.getTableHeader().setDefaultRenderer(renderer);
+
         //redimensiona as colunas
-        jTable2.setRowHeight(22);
+        jTable2.setRowHeight(26);
         jTable2.getColumnModel().getColumn(0).setMinWidth(0);
         jTable2.getColumnModel().getColumn(0).setMaxWidth(0);
         jTable2.getColumnModel().getColumn(2).setMinWidth(84);
@@ -57,7 +65,8 @@ public class HomeAdministrador extends javax.swing.JFrame {
                 l.setBackground(new java.awt.Color(255, 0, 66));
                 l.setFont(new java.awt.Font("Century Gothic", 0, 12));
                 l.setForeground(new java.awt.Color(255, 255, 255));
-                l.setBorder(null);
+                l.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+                l.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 return l;
             }
         });
@@ -200,6 +209,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
         main.setLayout(new java.awt.CardLayout());
 
+        usuarios.setBackground(new java.awt.Color(63, 63, 63));
         usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainzinho.setBackground(new java.awt.Color(51, 51, 51));
@@ -217,15 +227,26 @@ public class HomeAdministrador extends javax.swing.JFrame {
                 addUsuarioActionPerformed(evt);
             }
         });
-        mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 20, -1, -1));
+        mainzinho.add(addUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
 
         nav.setBackground(new java.awt.Color(51, 51, 51));
 
-        jTable2.setBackground(new java.awt.Color(251, 251, 251));
-        jTable2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.setBorder(null);
+
+        jTable2.setBackground(new java.awt.Color(255, 255, 255));
+        jTable2.setForeground(new java.awt.Color(0, 0, 0));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "ID", "Nome", "CPF", ""
@@ -248,6 +269,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
         jTable2.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
         jTable2.setRowSelectionAllowed(false);
         jTable2.getTableHeader().setResizingAllowed(false);
         jTable2.getTableHeader().setReorderingAllowed(false);
@@ -294,12 +316,12 @@ public class HomeAdministrador extends javax.swing.JFrame {
             navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(navLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAvancar)
-                    .addComponent(btnVoltar))
-                .addContainerGap())
+                    .addComponent(btnVoltar)
+                    .addComponent(btnAvancar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainzinho.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
@@ -342,7 +364,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
         mainzinho.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 101, 19));
 
-        usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 700, 430));
+        usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 700, 390));
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 66));
 
@@ -437,11 +459,11 @@ public class HomeAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_addUsuarioActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        usuariospag--;
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        // TODO add your handling code here:
+        usuariospag++;
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {

@@ -14,15 +14,21 @@ public class HomeColaborador extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         mostrarTabelaFormularios();
-
         nomeUsuario.setText("Olá, " + this.user.getNome());
     }
 
     private void mostrarTabelaFormularios() {
         tableModel = (javax.swing.table.DefaultTableModel) jtListaFormulario.getModel();
 
+        //formata os caraio dos cabeçalho da tabela
+        final javax.swing.table.DefaultTableCellRenderer renderer = new javax.swing.table.DefaultTableCellRenderer();
+        renderer.setBorder(null);
+        renderer.setBackground(java.awt.Color.decode("#333333"));
+        renderer.setForeground(java.awt.Color.white);
+        jtListaFormulario.getTableHeader().setDefaultRenderer(renderer);
+
         //redimensiona as colunas
-        jtListaFormulario.setRowHeight(22);
+        jtListaFormulario.setRowHeight(26);
         jtListaFormulario.getColumnModel().getColumn(0).setMinWidth(0);
         jtListaFormulario.getColumnModel().getColumn(0).setMaxWidth(0);
         jtListaFormulario.getColumnModel().getColumn(2).setMinWidth(75);
@@ -119,11 +125,20 @@ public class HomeColaborador extends javax.swing.JFrame {
 
         nav2.setBackground(new java.awt.Color(51, 51, 51));
 
-        jtListaFormulario.setBackground(new java.awt.Color(251, 251, 251));
-        jtListaFormulario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.setBorder(null);
+
         jtListaFormulario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
                 "ID", "Título", ""
@@ -146,6 +161,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         });
         jtListaFormulario.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jtListaFormulario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtListaFormulario.setGridColor(new java.awt.Color(255, 255, 255));
         jtListaFormulario.setRowSelectionAllowed(false);
         jtListaFormulario.getTableHeader().setResizingAllowed(false);
         jtListaFormulario.getTableHeader().setReorderingAllowed(false);
@@ -193,7 +209,7 @@ public class HomeColaborador extends javax.swing.JFrame {
             nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nav2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAvancar)

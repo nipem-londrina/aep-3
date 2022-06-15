@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class CadastroFormulario extends javax.swing.JFrame {
 
     Usuario user;
-    Formulario form;
+    Formulario form = new Formulario();
     ArrayList<String> perguntas = new ArrayList<>();
     int perguntaspag = 0;
 

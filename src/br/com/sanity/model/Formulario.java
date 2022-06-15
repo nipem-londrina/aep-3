@@ -7,6 +7,9 @@ public class Formulario {
     private String descricao;
     private int idEmpresa;
     private boolean ativo;
+    
+    public Formulario() {
+    }
 
     public Formulario(int id, String titulo) {
         this.id = id;
