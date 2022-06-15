@@ -221,6 +221,7 @@ public class HomeColaborador extends javax.swing.JFrame {
 
         btnPesquisar.setBackground(new java.awt.Color(51, 51, 51));
         btnPesquisar.setForeground(new java.awt.Color(251, 251, 251));
+        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/lupa17.png"))); // NOI18N
         btnPesquisar.setText(" Pesquisar");
         btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPesquisar.setContentAreaFilled(false);
