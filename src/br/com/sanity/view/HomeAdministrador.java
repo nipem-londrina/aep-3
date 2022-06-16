@@ -13,6 +13,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
     Usuario user;
     int usuariospag = 0;
+    int usuariostotal;
     javax.swing.table.DefaultTableModel tableModel;
 
     public HomeAdministrador(Usuario user) {
@@ -83,7 +84,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
 
         //preencher tabela ao entrar
-        preecherTabela(user, 0, true, false);
+        usuariostotal = preencherTabela(user, 0, true, false);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -150,7 +151,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         nomeAdmin.setText("Olá, Admin");
         panelRosa.add(nomeAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 60));
 
-        getContentPane().add(panelRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
+        getContentPane().add(panelRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 60));
 
         panelCinza.setBackground(new java.awt.Color(51, 51, 51));
         panelCinza.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -433,14 +434,16 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonForms.setOpaque(false);
         buttonEstatistica.setOpaque(false);
         CardLayout cards = (CardLayout) main.getLayout();
-        cards.show(main, "usuarios");    }//GEN-LAST:event_buttonHomeActionPerformed
+        cards.show(main, "usuarios");
+    }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
         new CadastroFormulario(user).setVisible(true);
     }//GEN-LAST:event_buttonFormsActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        preecherTabela(this.user, 0, checkColaborador.isSelected(), checkAdministrador.isSelected());
+        usuariospag = 0;
+        usuariostotal = preencherTabela(this.user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void checkAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAdministradorActionPerformed
@@ -460,14 +463,22 @@ public class HomeAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_addUsuarioActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        if (usuariospag <= 0) {
+            return; //fazer nada se na primeira página
+        }
         usuariospag--;
+        usuariostotal = preencherTabela(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+        if (usuariospag >= usuariostotal / 10) {
+            return; //fazer nada se na última página
+        }
         usuariospag++;
+        usuariostotal = preencherTabela(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnAvancarActionPerformed
 
-    private void preecherTabela(Usuario user, int pagina, boolean c, boolean a) {
+    private int preencherTabela(Usuario user, int pagina, boolean c, boolean a) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -486,6 +497,9 @@ public class HomeAdministrador extends javax.swing.JFrame {
                     }
             );
         }
+
+        //busca e retorna a quantidade
+        return ConnectionFactory.getTotalColaboradores(user, c, a);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

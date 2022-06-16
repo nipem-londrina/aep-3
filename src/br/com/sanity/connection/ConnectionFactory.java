@@ -387,4 +387,30 @@ public class ConnectionFactory {
         }
         return ok;
     }
+
+    public static int getTotalColaboradores(Usuario user, boolean c, boolean a) {
+        int total = 0;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select count(id) from Usuario "
+                    + "where idEmpresa = ? "
+                    + ((c && !a) ? "and perfil = 'C' " : "")
+                    + ((!c && a) ? "and perfil = 'A' " : ""));
+            stmt.setInt(1, user.getIdEmpresa());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return total;
+    }
+
 }
