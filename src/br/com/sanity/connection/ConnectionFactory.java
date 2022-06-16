@@ -368,7 +368,7 @@ public class ConnectionFactory {
         ResultSet rs = null;
         try {
             con.setAutoCommit(false);
-            stmt = con.prepareStatement("insert into Resposta (idUsuario, idFormulario, idPergunta, resposta) values (?, ?, ?, ?)");
+            stmt = con.prepareStatement("replace into Resposta (idUsuario, idFormulario, idPergunta, resposta) values (?, ?, ?, ?)");
             int size = resps.size();
             for (int i = 0; i < size; i++) {
                 Resposta resp = resps.get(i);
