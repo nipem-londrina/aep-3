@@ -97,13 +97,13 @@ public class HomeColaborador extends javax.swing.JFrame {
         panelRosa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/logoSanity.png"))); // NOI18N
+        logoSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/logoSanity.png"))); // NOI18N
         logoSanity.setToolTipText("");
         logoSanity.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelRosa.add(logoSanity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
 
         nomeSanity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/iconSanity.png"))); // NOI18N
+        nomeSanity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/iconSanity.png"))); // NOI18N
         nomeSanity.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         nomeSanity.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         nomeSanity.setVerifyInputWhenFocusTarget(false);
@@ -253,7 +253,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(251, 251, 251));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aep/icons/search_26px.png"))); // NOI18N
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/search_26px.png"))); // NOI18N
         lblTitulo.setText("FORMULÁRIOS");
         lblTitulo.setToolTipText("");
 
