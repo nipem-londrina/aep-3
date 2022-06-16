@@ -34,7 +34,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         jtListaFormulario.getColumnModel().getColumn(2).setMinWidth(75);
         jtListaFormulario.getColumnModel().getColumn(2).setMaxWidth(75);
 
-        //renderiza a coluna de Editar
+        //renderiza a coluna de Abrir
         jtListaFormulario.getColumnModel().getColumn(2).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
             @Override
             public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
@@ -42,7 +42,8 @@ public class HomeColaborador extends javax.swing.JFrame {
                 l.setBackground(new java.awt.Color(255, 0, 66));
                 l.setFont(new java.awt.Font("Century Gothic", 0, 12));
                 l.setForeground(new java.awt.Color(255, 255, 255));
-                l.setBorder(null);
+                l.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+                l.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 return l;
             }
         });
@@ -53,7 +54,7 @@ public class HomeColaborador extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 javax.swing.JTable selected = (javax.swing.JTable) e.getSource();
                 if (selected.getSelectedColumn() == 2) {
-                    new AlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
+                    new ResponderFormulario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
                 }
             }
         });
@@ -84,7 +85,7 @@ public class HomeColaborador extends javax.swing.JFrame {
 
         botao.setText("jButton3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(251, 251, 251));
         setMinimumSize(new java.awt.Dimension(1032, 599));
         setResizable(false);

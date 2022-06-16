@@ -1,10 +1,18 @@
 package br.com.sanity.model;
 
 public class Pergunta {
+
     private int id;
     private String texto;
     private int idFormulario;
     private boolean ativo;
+
+    public Pergunta(int id, String texto, int idFormulario, boolean ativo) {
+        this.id = id;
+        this.texto = texto;
+        this.idFormulario = idFormulario;
+        this.ativo = ativo;
+    }
 
     public int getId() {
         return id;

@@ -198,7 +198,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         if (true
                 && !txtNomeCadastro.getText().equals("")
                 && !txtEmailCadastro.getText().equals("")
-                && !txtPasswordCadastro.getText().equals("")
                 && txtPasswordCadastro.getPassword().length >= 8
                 && Usuario.validarCpf(txtMaskedCpfCadastro.getText())) {
             target.setNome(txtNomeCadastro.getText());

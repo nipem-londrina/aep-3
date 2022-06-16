@@ -11,6 +11,10 @@ public class Formulario {
     public Formulario() {
     }
 
+    public Formulario(int id) {
+        this.id = id;
+    }
+    
     public Formulario(int id, String titulo) {
         this.id = id;
         this.titulo = titulo;

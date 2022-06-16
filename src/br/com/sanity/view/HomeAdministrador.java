@@ -119,7 +119,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
         botao.setText("jButton3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(251, 251, 251));
         setMinimumSize(new java.awt.Dimension(1032, 599));
         setResizable(false);

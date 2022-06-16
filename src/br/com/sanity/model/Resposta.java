@@ -7,6 +7,13 @@ public class Resposta {
     private int idPergunta;
     private int resposta;
 
+    public Resposta(int idUsuario, int idFormulario, int idPergunta, int resposta) {
+        this.idUsuario = idUsuario;
+        this.idFormulario = idFormulario;
+        this.idPergunta = idPergunta;
+        this.resposta = resposta;
+    }
+    
     public int getIdUsuario() {
         return idUsuario;
     }

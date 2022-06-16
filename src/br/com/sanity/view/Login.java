@@ -26,6 +26,7 @@ public class Login extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lblSenhaCorreta = new javax.swing.JLabel();
         btnDEBUG = new javax.swing.JButton();
+        btnDEBUG1 = new javax.swing.JButton();
         painelRosa = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
 
@@ -102,13 +103,21 @@ public class Login extends javax.swing.JFrame {
         lblSenhaCorreta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel2.add(lblSenhaCorreta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        btnDEBUG.setText("DEBUG");
+        btnDEBUG.setText("ADMIN");
         btnDEBUG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDEBUGActionPerformed(evt);
             }
         });
-        jPanel2.add(btnDEBUG, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
+        jPanel2.add(btnDEBUG, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+
+        btnDEBUG1.setText("COLAB");
+        btnDEBUG1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDEBUG1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDEBUG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 0, 442, 501));
 
@@ -160,6 +169,19 @@ public class Login extends javax.swing.JFrame {
         new HomeAdministrador(user).setVisible(true);
     }//GEN-LAST:event_btnDEBUGActionPerformed
 
+    private void btnDEBUG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDEBUG1ActionPerformed
+        Usuario user = new Usuario();
+        user.setId(1);
+        user.setPerfil('C');
+        user.setIdEmpresa(1);
+        user.setNome("Erich");
+        user.setEmail("erich@email.com");
+        user.setCpf("123.456.789-09");
+        user.setAtivo(true);
+        this.dispose();
+        new HomeColaborador(user).setVisible(true);
+    }//GEN-LAST:event_btnDEBUG1ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
@@ -168,6 +190,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDEBUG;
+    private javax.swing.JButton btnDEBUG1;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel6;

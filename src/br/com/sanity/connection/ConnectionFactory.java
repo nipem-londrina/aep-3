@@ -1,6 +1,8 @@
 package br.com.sanity.connection;
 
 import br.com.sanity.model.Formulario;
+import br.com.sanity.model.Pergunta;
+import br.com.sanity.model.Resposta;
 import br.com.sanity.model.Usuario;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -297,6 +299,85 @@ public class ConnectionFactory {
                 stmt.executeUpdate();
             }
 
+            con.commit();
+            ok = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return ok;
+    }
+
+    public static Formulario getFormulario(int formId) {
+        Formulario form = new Formulario(formId);
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("select titulo, descricao, ativo "
+                    + "from Formulario "
+                    + "where id = ?");
+            stmt.setInt(1, form.getId());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                form.setTitulo(rs.getString("titulo"));
+                form.setDescricao(rs.getString("descricao"));
+                form.setAtivo(rs.getBoolean("ativo"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return form;
+    }
+
+    public static ArrayList<Pergunta> getPerguntas(Formulario form) {
+        ArrayList<Pergunta> lista = new ArrayList<>();
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select id, texto from Pergunta where ativo = 1 and idFormulario = ?");
+            stmt.setInt(1, form.getId());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                lista.add(new Pergunta(
+                        rs.getInt("id"),
+                        rs.getString("texto"),
+                        form.getId(),
+                        true
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return lista;
+    }
+
+    public static boolean cadastrarRespostas(ArrayList<Resposta> resps) {
+        boolean ok = false;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            con.setAutoCommit(false);
+            stmt = con.prepareStatement("insert into Resposta (idUsuario, idFormulario, idPergunta, resposta) values (?, ?, ?, ?)");
+            int size = resps.size();
+            for (int i = 0; i < size; i++) {
+                Resposta resp = resps.get(i);
+                stmt.setInt(1, resp.getIdUsuario());
+                stmt.setInt(2, resp.getIdFormulario());
+                stmt.setInt(3, resp.getIdPergunta());
+                stmt.setInt(4, resp.getResposta());
+                stmt.executeUpdate();
+            }
             con.commit();
             ok = true;
         } catch (SQLException ex) {
