@@ -413,4 +413,26 @@ public class ConnectionFactory {
         return total;
     }
 
+    public static int getTotalFormularios(Usuario user) {
+        int total = 0;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement("select count(id) from Formulario "
+                    + "where idEmpresa = ? ");
+            stmt.setInt(1, user.getIdEmpresa());
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return total;
+    }
 }

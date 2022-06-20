@@ -8,6 +8,8 @@ import br.com.sanity.model.Usuario;
 public class HomeColaborador extends javax.swing.JFrame {
 
     Usuario user;
+    int formspag = 0;
+    int formstotal;
     javax.swing.table.DefaultTableModel tableModel;
 
     public HomeColaborador(Usuario user) {
@@ -60,7 +62,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         });
 
         //preencher tabela ao entrar
-        preecherTabela(user, 0);
+        formstotal = preencherTabela(user, 0);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -238,11 +240,6 @@ public class HomeColaborador extends javax.swing.JFrame {
         txtPesquisar.setToolTipText("");
         txtPesquisar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtPesquisar.setCaretColor(new java.awt.Color(51, 51, 51));
-        txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPesquisarActionPerformed(evt);
-            }
-        });
         mainzinho2.add(txtPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 210, -1));
 
         painelUsuarios.add(mainzinho2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 720, 420));
@@ -282,19 +279,23 @@ public class HomeColaborador extends javax.swing.JFrame {
         //preecherTabela(this.user, 0, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPesquisarActionPerformed
-
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        // TODO add your handling code here:
+        if (formspag >= formstotal / 10) {
+            return; //fazer nada se na última página
+        }
+        formspag++;
+        formstotal = preencherTabela(user, formspag);
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        if (formspag <= 0) {
+            return; //fazer nada se na primeira página
+        }
+        formspag--;
+        formstotal = preencherTabela(user, formspag);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void preecherTabela(Usuario user, int pagina) {
+    private int preencherTabela(Usuario user, int pagina) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -312,6 +313,9 @@ public class HomeColaborador extends javax.swing.JFrame {
                     }
             );
         }
+
+        //busca e retorna a quantidade
+        return ConnectionFactory.getTotalFormularios(user);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
