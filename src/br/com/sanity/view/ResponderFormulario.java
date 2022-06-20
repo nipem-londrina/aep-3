@@ -65,6 +65,7 @@ public class ResponderFormulario extends javax.swing.JFrame {
         btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
         btnAnterior.setText("CANCELAR");
         btnAnterior.setBorder(null);
+        btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnteriorActionPerformed(evt);
@@ -76,6 +77,7 @@ public class ResponderFormulario extends javax.swing.JFrame {
         btnSeguinte.setForeground(new java.awt.Color(255, 255, 255));
         btnSeguinte.setText("COMEÇAR");
         btnSeguinte.setBorder(null);
+        btnSeguinte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSeguinte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeguinteActionPerformed(evt);
@@ -106,22 +108,27 @@ public class ResponderFormulario extends javax.swing.JFrame {
         lblPerguntaDoBanco.setText("pergunta");
 
         buttonGroup1.add(rbtnDiscordoTotalmente);
+        rbtnDiscordoTotalmente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnDiscordoTotalmente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bola.png"))); // NOI18N
         rbtnDiscordoTotalmente.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaPintada.png"))); // NOI18N
 
         buttonGroup1.add(rbtnDiscordo);
+        rbtnDiscordo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnDiscordo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenor.png"))); // NOI18N
         rbtnDiscordo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenorPintada.png"))); // NOI18N
 
         buttonGroup1.add(rbtnNeutro);
+        rbtnNeutro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnNeutro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenorMenor.png"))); // NOI18N
         rbtnNeutro.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenorMenorPintada.png"))); // NOI18N
 
         buttonGroup1.add(rbtnConcordo);
+        rbtnConcordo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnConcordo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenor.png"))); // NOI18N
         rbtnConcordo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaMenorPintada.png"))); // NOI18N
 
         buttonGroup1.add(rbtnConcordoTotalmente);
+        rbtnConcordoTotalmente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbtnConcordoTotalmente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bola.png"))); // NOI18N
         rbtnConcordoTotalmente.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/bolaPintada.png"))); // NOI18N
 

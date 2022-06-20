@@ -175,7 +175,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         btnAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha.png"))); // NOI18N
         btnAvancar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAvancar.setContentAreaFilled(false);
-        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvancarActionPerformed(evt);
@@ -187,7 +187,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha_esquerda.png"))); // NOI18N
         btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVoltar.setContentAreaFilled(false);
-        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -228,6 +228,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         btnPesquisar.setText(" Pesquisar");
         btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPesquisar.setContentAreaFilled(false);
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);

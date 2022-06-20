@@ -117,6 +117,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
         bntCancelar.setForeground(new java.awt.Color(255, 255, 255));
         bntCancelar.setText("CANCELAR");
         bntCancelar.setBorder(null);
+        bntCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntCancelarActionPerformed(evt);
@@ -129,6 +130,7 @@ public class AlterarUsuario extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setText("ALTERAR");
         btnAlterar.setBorder(null);
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);

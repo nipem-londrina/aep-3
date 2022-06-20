@@ -117,6 +117,8 @@ public class HomeAdministrador extends javax.swing.JFrame {
         dashboard1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        formularios = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         botao.setText("jButton3");
 
@@ -163,6 +165,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonHome.setText("   Pagina Inicial");
         buttonHome.setBorderPainted(false);
         buttonHome.setContentAreaFilled(false);
+        buttonHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonHome.setOpaque(true);
         buttonHome.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +183,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonForms.setToolTipText("");
         buttonForms.setBorderPainted(false);
         buttonForms.setContentAreaFilled(false);
-        buttonForms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonForms.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonForms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonForms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +200,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         buttonEstatistica.setToolTipText("");
         buttonEstatistica.setBorderPainted(false);
         buttonEstatistica.setContentAreaFilled(false);
-        buttonEstatistica.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonEstatistica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonEstatistica.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonEstatistica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +225,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         addUsuario.setText("Novo Usuario");
         addUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addUsuario.setContentAreaFilled(false);
-        addUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addUsuarioActionPerformed(evt);
@@ -281,7 +284,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha_esquerda.png"))); // NOI18N
         btnVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVoltar.setContentAreaFilled(false);
-        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -293,7 +296,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         btnAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sanity/icons/setinha.png"))); // NOI18N
         btnAvancar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAvancar.setContentAreaFilled(false);
-        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvancarActionPerformed(evt);
@@ -332,6 +335,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         checkAdministrador.setText("Administradores");
         checkAdministrador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         checkAdministrador.setBorderPainted(true);
+        checkAdministrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         checkAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkAdministradorActionPerformed(evt);
@@ -346,6 +350,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         checkColaborador.setToolTipText("");
         checkColaborador.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         checkColaborador.setBorderPainted(true);
+        checkColaborador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         checkColaborador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkColaboradorActionPerformed(evt);
@@ -359,6 +364,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         btnPesquisar.setText(" Pesquisar");
         btnPesquisar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPesquisar.setContentAreaFilled(false);
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -416,6 +422,32 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
         main.add(estatisticas, "estatisticas");
 
+        jButton1.setText("adicionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formulariosLayout = new javax.swing.GroupLayout(formularios);
+        formularios.setLayout(formulariosLayout);
+        formulariosLayout.setHorizontalGroup(
+            formulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formulariosLayout.createSequentialGroup()
+                .addContainerGap(450, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(330, 330, 330))
+        );
+        formulariosLayout.setVerticalGroup(
+            formulariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formulariosLayout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(jButton1)
+                .addContainerGap(333, Short.MAX_VALUE))
+        );
+
+        main.add(formularios, "formularios");
+
         getContentPane().add(main, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 860, 540));
 
         pack();
@@ -438,7 +470,11 @@ public class HomeAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void buttonFormsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormsActionPerformed
-        new CadastroFormulario(user).setVisible(true);
+        buttonHome.setOpaque(false);
+        buttonForms.setOpaque(true);
+        buttonEstatistica.setOpaque(false);
+        CardLayout cards = (CardLayout) main.getLayout();
+        cards.show(main, "formularios");
     }//GEN-LAST:event_buttonFormsActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -478,6 +514,10 @@ public class HomeAdministrador extends javax.swing.JFrame {
         usuariostotal = preencherTabela(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
     }//GEN-LAST:event_btnAvancarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new CadastroFormulario(user).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private int preencherTabela(Usuario user, int pagina, boolean c, boolean a) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
@@ -515,6 +555,8 @@ public class HomeAdministrador extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkColaborador;
     private javax.swing.JPanel dashboard1;
     private javax.swing.JPanel estatisticas;
+    private javax.swing.JPanel formularios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

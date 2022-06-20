@@ -100,6 +100,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
         btnCancelarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelarFormulario.setText("CANCELAR");
         btnCancelarFormulario.setBorder(null);
+        btnCancelarFormulario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelarFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarFormularioActionPerformed(evt);
@@ -112,6 +113,7 @@ public class CadastroFormulario extends javax.swing.JFrame {
         btnCadastrarFormulario.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarFormulario.setText("CADASTRAR");
         btnCadastrarFormulario.setBorder(null);
+        btnCadastrarFormulario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrarFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarFormularioActionPerformed(evt);
