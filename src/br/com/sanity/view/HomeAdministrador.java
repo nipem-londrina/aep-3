@@ -128,8 +128,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 javax.swing.JTable selected = (javax.swing.JTable) e.getSource();
                 if (selected.getSelectedColumn() == 2) {
-                    //new AlterarUsuario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
-                    //TODO
+                    new CadastroFormulario(user, (int) tableModel.getValueAt(selected.getSelectedRow(), 0)).setVisible(true);
                 }
             }
         });

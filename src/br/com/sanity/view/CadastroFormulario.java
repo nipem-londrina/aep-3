@@ -2,6 +2,7 @@ package br.com.sanity.view;
 
 import br.com.sanity.connection.ConnectionFactory;
 import br.com.sanity.model.Formulario;
+import br.com.sanity.model.Pergunta;
 import br.com.sanity.model.Usuario;
 import java.util.ArrayList;
 
@@ -9,12 +10,27 @@ public class CadastroFormulario extends javax.swing.JFrame {
 
     Usuario user;
     Formulario form = new Formulario();
-    ArrayList<String> perguntas = new ArrayList<>();
+    ArrayList<Pergunta> perguntas = new ArrayList<>();
     int perguntaspag = 0;
 
     public CadastroFormulario(Usuario user) {
         initComponents();
         this.user = user;
+    }
+
+    public CadastroFormulario(Usuario user, int formId) {
+        initComponents();
+        this.user = user;
+        
+        //preenche os campos
+        form = ConnectionFactory.getFormulario(formId);
+        txtTitulo.setText(form.getTitulo());
+        txaDescricao.setText(form.getDescricao());
+        perguntas = ConnectionFactory.getPerguntas(form);
+        
+        //ajusta as coisa
+        lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size()));
+        txaPergunta.setText(perguntas.get(0).getTexto());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -194,40 +210,40 @@ public class CadastroFormulario extends javax.swing.JFrame {
         if (perguntaspag != 0) {
             if (perguntaspag >= perguntas.size()) {
                 if (!txaPergunta.getText().equals("")) {
-                    perguntas.add(txaPergunta.getText());
+                    perguntas.add(new Pergunta(txaPergunta.getText()));
                 }
             } else {
-                perguntas.set(perguntaspag, txaPergunta.getText());
+                perguntas.set(perguntaspag, new Pergunta(txaPergunta.getText()));
             }
             perguntaspag--;
-            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size() + 1));
-            txaPergunta.setText(perguntas.get(perguntaspag));
+            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size()));
+            txaPergunta.setText(perguntas.get(perguntaspag).getTexto());
         }
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnSeguinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguinteActionPerformed
         if (!txaPergunta.getText().equals("")) {
             if (perguntaspag >= perguntas.size()) {
-                perguntas.add(txaPergunta.getText());
+                perguntas.add(new Pergunta(txaPergunta.getText()));
             } else {
-                perguntas.set(perguntaspag, txaPergunta.getText());
+                perguntas.set(perguntaspag, new Pergunta(txaPergunta.getText()));
             }
             btnAnterior.setEnabled(true);
             perguntaspag++;
-            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size() + 1));
+            lblPagina.setText((perguntaspag + 1) + "/" + (perguntas.size()));
             if (perguntaspag >= perguntas.size()) {
                 txaPergunta.setText("");
             } else {
-                txaPergunta.setText(perguntas.get(perguntaspag));
+                txaPergunta.setText(perguntas.get(perguntaspag).getTexto());
             }
         }
     }//GEN-LAST:event_btnSeguinteActionPerformed
 
     private void btnCadastrarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFormularioActionPerformed
         if (perguntaspag >= perguntas.size()) {
-            perguntas.add(txaPergunta.getText());
+            perguntas.add(new Pergunta(txaPergunta.getText()));
         } else {
-            perguntas.set(perguntaspag, txaPergunta.getText());
+            perguntas.set(perguntaspag, new Pergunta(txaPergunta.getText()));
         }
         this.form.setTitulo(txtTitulo.getText());
         this.form.setDescricao(txaDescricao.getText());

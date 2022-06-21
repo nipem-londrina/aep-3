@@ -2,7 +2,7 @@ package br.com.sanity.model;
 
 public class Formulario {
 
-    private int id;
+    private int id = 0;
     private String titulo;
     private String descricao;
     private int idEmpresa;

@@ -79,7 +79,7 @@ public class ConnectionFactory {
         random.nextBytes(salt);
 
         try {
-            stmt = con.prepareStatement("INSERT INTO Usuario (perfil, senhaHash, senhaSal, idEmpresa, nome, email, cpf) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            stmt = con.prepareStatement("insert into Usuario (perfil, senhaHash, senhaSal, idEmpresa, nome, email, cpf) values (?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, String.valueOf(user.getPerfil()));
             stmt.setBytes(2, pbkdf2(senha, salt));
             stmt.setBytes(3, salt);
@@ -103,7 +103,7 @@ public class ConnectionFactory {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("select id, senhaHash, senhaSal from Usuario where email = ?");
+            stmt = con.prepareStatement("select id, senhaHash, senhaSal from Usuario where email = ? and ativo = 1");
             stmt.setString(1, user.getEmail());
             rs = stmt.executeQuery();
             if (rs.next() && Arrays.equals(pbkdf2(senha, rs.getBytes("senhaSal")), rs.getBytes("senhaHash"))) {
@@ -170,6 +170,7 @@ public class ConnectionFactory {
                     + "where idEmpresa = ? "
                     + ((c && !a) ? "and perfil = 'C' " : "")
                     + ((!c && a) ? "and perfil = 'A' " : "")
+                    + "and ativo = 1 "
                     + "order by nome limit ?, 10");
             stmt.setInt(1, user.getIdEmpresa());
             stmt.setInt(2, (pag * 10));
@@ -199,7 +200,7 @@ public class ConnectionFactory {
 
         try {
             stmt = con.prepareStatement("select id, titulo from Formulario "
-                    + "where idEmpresa = ? "
+                    + "where idEmpresa = ? and ativo = 1 "
                     + "order by titulo limit ?, 10");
             stmt.setInt(1, user.getIdEmpresa());
             stmt.setInt(2, (pag * 10));
@@ -227,7 +228,7 @@ public class ConnectionFactory {
         try {
             stmt = con.prepareStatement("select perfil, nome, email, cpf, ativo "
                     + "from Usuario "
-                    + "where id = ?");
+                    + "where id = ? and ativo = 1");
             stmt.setInt(1, target.getId());
             rs = stmt.executeQuery();
             if (rs.next()) {
@@ -275,13 +276,18 @@ public class ConnectionFactory {
         return ok;
     }
 
-    public static boolean cadastrarFormulario(Formulario form, ArrayList<String> perguntas) {
+    public static boolean cadastrarFormulario(Formulario form, ArrayList<Pergunta> perguntas) {
         boolean ok = false;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             con.setAutoCommit(false);
+            if (form.getId() != 0) { //executar se substituindo
+                stmt = con.prepareStatement("update Formulario set ativo = '0' where (id = ?)");
+                stmt.setInt(1, form.getId());
+                stmt.executeUpdate();
+            }
             stmt = con.prepareStatement("insert into Formulario (titulo, descricao, idEmpresa) values (?, ?, ?)");
             stmt.setString(1, form.getTitulo());
             stmt.setString(2, form.getDescricao());
@@ -294,7 +300,7 @@ public class ConnectionFactory {
 
             for (int i = 0; i < perguntas.size(); i++) {
                 stmt = con.prepareStatement("insert into Pergunta (texto, idFormulario) values (?, ?)");
-                stmt.setString(1, perguntas.get(i));
+                stmt.setString(1, perguntas.get(i).getTexto());
                 stmt.setInt(2, rs.getInt("idFormulario"));
                 stmt.executeUpdate();
             }
@@ -315,15 +321,16 @@ public class ConnectionFactory {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("select titulo, descricao, ativo "
+            stmt = con.prepareStatement("select titulo, descricao, ativo, idEmpresa "
                     + "from Formulario "
-                    + "where id = ?");
+                    + "where id = ? and ativo = 1");
             stmt.setInt(1, form.getId());
             rs = stmt.executeQuery();
             if (rs.next()) {
                 form.setTitulo(rs.getString("titulo"));
                 form.setDescricao(rs.getString("descricao"));
                 form.setAtivo(rs.getBoolean("ativo"));
+                form.setIdEmpresa(rs.getInt("idEmpresa"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
@@ -398,7 +405,8 @@ public class ConnectionFactory {
             stmt = con.prepareStatement("select count(id) from Usuario "
                     + "where idEmpresa = ? "
                     + ((c && !a) ? "and perfil = 'C' " : "")
-                    + ((!c && a) ? "and perfil = 'A' " : ""));
+                    + ((!c && a) ? "and perfil = 'A' " : "")
+                    + "and ativo = 1");
             stmt.setInt(1, user.getIdEmpresa());
             rs = stmt.executeQuery();
             if (rs.next()) {
@@ -421,7 +429,7 @@ public class ConnectionFactory {
 
         try {
             stmt = con.prepareStatement("select count(id) from Formulario "
-                    + "where idEmpresa = ? ");
+                    + "where idEmpresa = ? and ativo = 1");
             stmt.setInt(1, user.getIdEmpresa());
             rs = stmt.executeQuery();
             if (rs.next()) {

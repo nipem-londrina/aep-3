@@ -7,6 +7,10 @@ public class Pergunta {
     private int idFormulario;
     private boolean ativo;
 
+    public Pergunta(String texto) {
+        this.texto = texto;
+    }
+    
     public Pergunta(int id, String texto, int idFormulario, boolean ativo) {
         this.id = id;
         this.texto = texto;
