@@ -158,7 +158,7 @@ public class ConnectionFactory {
         return id + "";
     }
 
-    public static ArrayList<Usuario> getDezColaboradores(Usuario user, int pag, boolean c, boolean a) {
+    public static ArrayList<Usuario> getDezColaboradores(Usuario user, int pag, boolean c, boolean a, String pesquisa) {
         ArrayList<Usuario> lista = new ArrayList<>();
 
         Connection con = ConnectionFactory.getConnection();
@@ -171,6 +171,7 @@ public class ConnectionFactory {
                     + ((c && !a) ? "and perfil = 'C' " : "")
                     + ((!c && a) ? "and perfil = 'A' " : "")
                     + "and ativo = 1 "
+                    + ((pesquisa.length() != 0) ? "and nome like \"%" + pesquisa + "%\"" : "")
                     + "order by nome limit ?, 10");
             stmt.setInt(1, user.getIdEmpresa());
             stmt.setInt(2, (pag * 10));
@@ -191,7 +192,7 @@ public class ConnectionFactory {
         return lista;
     }
 
-    public static ArrayList<Formulario> getDezFormularios(Usuario user, int pag) {
+    public static ArrayList<Formulario> getDezFormularios(Usuario user, int pag, String pesquisa) {
         ArrayList<Formulario> lista = new ArrayList<>();
 
         Connection con = ConnectionFactory.getConnection();
@@ -201,6 +202,7 @@ public class ConnectionFactory {
         try {
             stmt = con.prepareStatement("select id, titulo from Formulario "
                     + "where idEmpresa = ? and ativo = 1 "
+                    + ((pesquisa.length() != 0) ? "and titulo like \"%" + pesquisa + "%\"" : "")
                     + "order by titulo limit ?, 10");
             stmt.setInt(1, user.getIdEmpresa());
             stmt.setInt(2, (pag * 10));

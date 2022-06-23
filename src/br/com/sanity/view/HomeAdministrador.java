@@ -30,7 +30,6 @@ public class HomeAdministrador extends javax.swing.JFrame {
     }
 
     private void mostrarGrafico() {
-
         DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("Ansiedade", 10);
         dataset.setValue("Depressão", 20);
@@ -89,7 +88,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
 
         //preencher tabela ao entrar
-        usuariostotal = preencherTabelaUsuarios(user, 0, true, false);
+        usuariostotal = preencherTabelaUsuarios(user, 0, true, false, "");
     }
 
     private void mostrarTabelaFormularios() {
@@ -135,7 +134,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         });
 
         //preencher tabela ao entrar
-        formstotal = preencherTabelaFormularios(user, 0);
+        formstotal = preencherTabelaFormularios(user, 0, txtPesquisar.getText());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -162,6 +161,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         checkAdministrador = new javax.swing.JCheckBox();
         checkColaborador = new javax.swing.JCheckBox();
         btnPesquisar = new javax.swing.JButton();
+        txtPesquisar1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         estatisticas = new javax.swing.JPanel();
@@ -430,7 +430,14 @@ public class HomeAdministrador extends javax.swing.JFrame {
                 btnPesquisarActionPerformed(evt);
             }
         });
-        mainzinho.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 101, 19));
+        mainzinho.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 101, 19));
+
+        txtPesquisar1.setBackground(new java.awt.Color(102, 102, 102));
+        txtPesquisar1.setForeground(new java.awt.Color(255, 255, 255));
+        txtPesquisar1.setToolTipText("");
+        txtPesquisar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPesquisar1.setCaretColor(new java.awt.Color(51, 51, 51));
+        mainzinho.add(txtPesquisar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 180, -1));
 
         usuarios.add(mainzinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 700, 390));
 
@@ -666,7 +673,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         usuariospag = 0;
-        usuariostotal = preencherTabelaUsuarios(this.user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
+        usuariostotal = preencherTabelaUsuarios(this.user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected(), txtPesquisar1.getText());
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void checkAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAdministradorActionPerformed
@@ -690,7 +697,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
             return; //fazer nada se na primeira página
         }
         usuariospag--;
-        usuariostotal = preencherTabelaUsuarios(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
+        usuariostotal = preencherTabelaUsuarios(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected(), txtPesquisar1.getText());
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
@@ -698,7 +705,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
             return; //fazer nada se na última página
         }
         usuariospag++;
-        usuariostotal = preencherTabelaUsuarios(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected());
+        usuariostotal = preencherTabelaUsuarios(user, usuariospag, checkColaborador.isSelected(), checkAdministrador.isSelected(), txtPesquisar1.getText());
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnAvancar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancar1ActionPerformed
@@ -706,7 +713,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
             return; //fazer nada se na última página
         }
         formspag++;
-        formstotal = preencherTabelaFormularios(user, formspag);
+        formstotal = preencherTabelaFormularios(user, formspag, txtPesquisar.getText());
     }//GEN-LAST:event_btnAvancar1ActionPerformed
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
@@ -714,14 +721,15 @@ public class HomeAdministrador extends javax.swing.JFrame {
             return; //fazer nada se na primeira página
         }
         formspag--;
-        formstotal = preencherTabelaFormularios(user, formspag);
+        formstotal = preencherTabelaFormularios(user, formspag, txtPesquisar.getText());
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
-        //preecherTabela(this.user, 0, checkColaborador.isSelected(), checkAdministrador.isSelected());
+        formspag = 0;
+        formstotal = preencherTabelaFormularios(user, formspag, txtPesquisar.getText());
     }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
-    private int preencherTabelaUsuarios(Usuario user, int pagina, boolean c, boolean a) {
+    private int preencherTabelaUsuarios(Usuario user, int pagina, boolean c, boolean a, String pesquisa) {
         //limpa tabela
         int rowCount = tableModelUsuario.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -729,7 +737,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         }
 
         //preenche a tabela
-        ArrayList<Usuario> busca = ConnectionFactory.getDezColaboradores(user, pagina, c, a);
+        ArrayList<Usuario> busca = ConnectionFactory.getDezColaboradores(user, pagina, c, a, pesquisa);
         for (int i = 0; i < busca.size(); i++) {
             tableModelUsuario.addRow(
                     new Object[]{
@@ -745,7 +753,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         return ConnectionFactory.getTotalColaboradores(user, c, a);
     }
 
-    private int preencherTabelaFormularios(Usuario user, int pagina) {
+    private int preencherTabelaFormularios(Usuario user, int pagina, String pesquisa) {
         //limpa tabela
         int rowCount = tableModelFormulario.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -753,7 +761,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
         }
 
         //preenche a tabela
-        ArrayList<Formulario> busca = ConnectionFactory.getDezFormularios(user, pagina);
+        ArrayList<Formulario> busca = ConnectionFactory.getDezFormularios(user, pagina, pesquisa);
         for (int i = 0; i < busca.size(); i++) {
             tableModelFormulario.addRow(
                     new Object[]{
@@ -806,6 +814,7 @@ public class HomeAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel panelCinza;
     private javax.swing.JPanel panelRosa;
     private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JTextField txtPesquisar1;
     private javax.swing.JPanel usuarios;
     // End of variables declaration//GEN-END:variables
 }

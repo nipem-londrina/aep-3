@@ -62,7 +62,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         });
 
         //preencher tabela ao entrar
-        formstotal = preencherTabela(user, 0);
+        formstotal = preencherTabela(user, 0, "");
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -285,7 +285,7 @@ public class HomeColaborador extends javax.swing.JFrame {
             return; //fazer nada se na última página
         }
         formspag++;
-        formstotal = preencherTabela(user, formspag);
+        formstotal = preencherTabela(user, formspag, txtPesquisar.getText());
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -293,10 +293,10 @@ public class HomeColaborador extends javax.swing.JFrame {
             return; //fazer nada se na primeira página
         }
         formspag--;
-        formstotal = preencherTabela(user, formspag);
+        formstotal = preencherTabela(user, formspag, txtPesquisar.getText());
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private int preencherTabela(Usuario user, int pagina) {
+    private int preencherTabela(Usuario user, int pagina, String pesquisa) {
         //limpa tabela
         int rowCount = tableModel.getRowCount();
         for (int i = 0; i < rowCount; i++) {
@@ -304,7 +304,7 @@ public class HomeColaborador extends javax.swing.JFrame {
         }
 
         //preenche a tabela
-        ArrayList<Formulario> busca = ConnectionFactory.getDezFormularios(user, pagina);
+        ArrayList<Formulario> busca = ConnectionFactory.getDezFormularios(user, pagina, pesquisa);
         for (int i = 0; i < busca.size(); i++) {
             tableModel.addRow(
                     new Object[]{
